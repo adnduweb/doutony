@@ -1,0 +1,64 @@
+{
+    "name": "codeigniter4/appstarter",
+    "type": "project",
+    "description": "CodeIgniter4 starter app",
+    "homepage": "https://codeigniter.com",
+    "license": "MIT",
+    "repositories": [{
+        "type": "vcs",
+        "url": "https://github.com/codeigniter4/codeigniter4"
+    }],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.2",
+        "kint-php/kint": "^3.3",
+        "psr/log": "^1.1",
+        "laminas/laminas-escaper": "^2.6",
+        "codeigniter4/codeigniter4": "dev-develop",
+        "codeigniter4/translations": "@beta",
+        "adnduweb/ci4_core" : "*"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.9@dev",
+        "mikey179/vfsstream": "1.6.*",
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Support\\": "tests/_support"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "Adnduweb\\Ci4_core\\Composer::postCreateProject"
+        ],
+        "post-update-cmd": [
+            "@composer dump-autoload",
+            "Adnduweb\\Ci4_core\\Composer::postInstall"
+        ],
+        "post-update-cmd": [
+            "@composer dump-autoload",
+            "Adnduweb\\Ci4_core\\Composer::postUpdate"
+        ],
+        "test": "phpunit"
+    },
+    "extra": {
+        "Adnduweb\\Core\\Composer::postCreateProject": {
+            "setPermission": [
+                {
+                    "writable/cache": "0755",
+                    "writable/debugbar": "0755",
+                    "writable/logs": "0755",
+                    "writable/session": "0755",
+                    "writable/uploads": "0755"
+                }
+            ]
+        }
+    },
+    "support": {
+        "forum": "http://forum.codeigniter.com/",
+        "source": "https://github.com/codeigniter4/CodeIgniter4",
+        "slack": "https://codeigniterchat.slack.com"
+    }
+}
