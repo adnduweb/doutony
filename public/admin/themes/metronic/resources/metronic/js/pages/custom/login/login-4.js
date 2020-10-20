@@ -44,7 +44,7 @@ var KTLogin = function() {
                 }
             )
             .on('core.form.valid', function() {
-
+                console.log('shgfhgdfhdgfhdfg');
                 // Show loading state on button
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "Please wait");
 
@@ -56,7 +56,7 @@ var KTLogin = function() {
                 // Form Validation & Ajax Submission: https://formvalidation.io/guide/examples/using-ajax-to-submit-the-form
                 FormValidation.utils.fetch(formSubmitUrl, {
                     headers: {
-                        'X-CSRF-TOKEN': $('[name="X-CSRF-TOKEN"]').attr('content'),
+                        'X-CSRF-TOKEN': token_hash,
                     },
                     method: 'POST',
                     dataType: 'json',
@@ -67,9 +67,8 @@ var KTLogin = function() {
                 }).then(function(response) { // Return valid JSON
                     // Release button
                     KTUtil.btnRelease(formSubmitButton);
+                    console.log('nonnon');
                     if (response && typeof response === 'object' && response.status && response.status == 'success') {
-                        // Update CSRF hash
-                        $('[name="X-CSRF-TOKEN"]').attr('content', response.token);
                         Swal.fire({
                             html: response.message,
                             icon: "success",
@@ -85,7 +84,6 @@ var KTLogin = function() {
                             window.location.href = response.redirect;
                         });
                     } else {
-                        $('[name="X-CSRF-TOKEN"]').attr('content', response.token);
                         Swal.fire({
                             html: response.message,
                             icon: "error",

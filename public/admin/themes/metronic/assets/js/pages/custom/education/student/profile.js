@@ -105,7 +105,7 @@ eval(" // Class definition\n\nvar KTAppsEducationStudentProfile = function () {\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\spreadci4\public\admin\themes\metronic\resources\metronic\js\pages\custom\education\student\profile.js */"./resources/metronic/js/pages/custom/education/student/profile.js");
+module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\custom\education\student\profile.js */"./resources/metronic/js/pages/custom/education/student/profile.js");
 
 
 /***/ })

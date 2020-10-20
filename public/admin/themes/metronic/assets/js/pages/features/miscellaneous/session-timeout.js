@@ -105,7 +105,7 @@ eval("\n\nvar KTSessionTimeoutDemo = function () {\n  var initDemo = function in
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\spreadci4\public\admin\themes\metronic\resources\metronic\js\pages\features\miscellaneous\session-timeout.js */"./resources/metronic/js/pages/features/miscellaneous/session-timeout.js");
+module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\features\miscellaneous\session-timeout.js */"./resources/metronic/js/pages/features/miscellaneous/session-timeout.js");
 
 
 /***/ })

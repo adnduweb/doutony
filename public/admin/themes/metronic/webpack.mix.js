@@ -16,10 +16,7 @@ const rimraf = require('rimraf');
  */
 
 // Default
-mix.js('./resources/js/app.js', './assets/js')
-    .scripts('./resources/js/config.js', './assets/js/config.js')
-    .scripts('./resources/js/jquery-ui.min.js', './assets/js/jquery-ui.min.js')
-    .sass('./resources/sass/app.scss', './assets/css');
+mix.js('./resources/js/app.js', './assets/js').scripts('./resources/js/config.js', './assets/js/config.js').scripts('./resources/js/jquery-ui.min.js', './assets/js/jquery-ui.min.js').sass('./resources/sass/app.scss', './assets/css');
 
 // Global jquery
 // mix.autoload({

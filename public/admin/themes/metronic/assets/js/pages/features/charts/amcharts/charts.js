@@ -105,7 +105,7 @@ eval(" // Class definition\n\nvar KTamChartsChartsDemo = function () {\n  // Pri
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\spreadci4\public\admin\themes\metronic\resources\metronic\js\pages\features\charts\amcharts\charts.js */"./resources/metronic/js/pages/features/charts/amcharts/charts.js");
+module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\features\charts\amcharts\charts.js */"./resources/metronic/js/pages/features/charts/amcharts/charts.js");
 
 
 /***/ })

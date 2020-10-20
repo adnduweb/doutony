@@ -17,7 +17,7 @@
         "laminas/laminas-escaper": "^2.6",
         "codeigniter4/codeigniter4": "dev-develop",
         "codeigniter4/translations": "@beta",
-        "adnduweb/ci4_core" : "*"
+        "adnduweb/ci4_core": "dev-main"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9@dev",
@@ -31,20 +31,20 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "Adnduweb\\Ci4_core\\Composer::postCreateProject"
+            "Adnduweb\\Ci4Core\\Core\\BaseComposer::postCreateProject"
+        ],
+        "post-install-cmd": [
+            "@composer dump-autoload",
+            "Adnduweb\\Ci4Core\\Core\\BaseComposer::postInstall"
         ],
         "post-update-cmd": [
             "@composer dump-autoload",
-            "Adnduweb\\Ci4_core\\Composer::postInstall"
-        ],
-        "post-update-cmd": [
-            "@composer dump-autoload",
-            "Adnduweb\\Ci4_core\\Composer::postUpdate"
+            "Adnduweb\\Ci4Core\\Core\\BaseComposer::postUpdate"
         ],
         "test": "phpunit"
     },
     "extra": {
-        "Adnduweb\\Core\\Composer::postCreateProject": {
+        "Adnduweb\\Ci4Core\\Core\\BaseComposer::postCreateProject": {
             "setPermission": [
                 {
                     "writable/cache": "0755",

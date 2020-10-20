@@ -81,33 +81,21 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 143);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./resources/metronic/js/pages/features/maps/jvectormap.js":
-/*!*****************************************************************!*\
-  !*** ./resources/metronic/js/pages/features/maps/jvectormap.js ***!
-  \*****************************************************************/
+/******/ ([
+/* 0 */
+/*!*******************************!*\
+  !*** multi brew install wget ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval(" // Class definition\n\nvar KTjVectorMap = function () {\n  // Private functions\n  var demo1 = function demo1() {};\n\n  return {\n    // public functions\n    init: function init() {\n      // default charts\n      demo1();\n    }\n  };\n}();\n\njQuery(document).ready(function () {\n  KTjVectorMap.init();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvbWV0cm9uaWMvanMvcGFnZXMvZmVhdHVyZXMvbWFwcy9qdmVjdG9ybWFwLmpzP2Q1MGYiXSwibmFtZXMiOlsiS1RqVmVjdG9yTWFwIiwiZGVtbzEiLCJpbml0IiwialF1ZXJ5IiwiZG9jdW1lbnQiLCJyZWFkeSJdLCJtYXBwaW5ncyI6IkNBRUE7O0FBQ0EsSUFBSUEsWUFBWSxHQUFHLFlBQVc7QUFFMUI7QUFFQSxNQUFJQyxLQUFLLEdBQUcsU0FBUkEsS0FBUSxHQUFXLENBQ3RCLENBREQ7O0FBR0EsU0FBTztBQUNIO0FBQ0FDLFFBQUksRUFBRSxnQkFBVztBQUNiO0FBQ0FELFdBQUs7QUFDUjtBQUxFLEdBQVA7QUFPSCxDQWRrQixFQUFuQjs7QUFnQkFFLE1BQU0sQ0FBQ0MsUUFBRCxDQUFOLENBQWlCQyxLQUFqQixDQUF1QixZQUFXO0FBQzlCTCxjQUFZLENBQUNFLElBQWI7QUFDSCxDQUZEIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL21ldHJvbmljL2pzL3BhZ2VzL2ZlYXR1cmVzL21hcHMvanZlY3Rvcm1hcC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xyXG5cclxuLy8gQ2xhc3MgZGVmaW5pdGlvblxyXG52YXIgS1RqVmVjdG9yTWFwID0gZnVuY3Rpb24oKSB7XHJcblxyXG4gICAgLy8gUHJpdmF0ZSBmdW5jdGlvbnNcclxuXHJcbiAgICB2YXIgZGVtbzEgPSBmdW5jdGlvbigpIHtcclxuICAgIH1cclxuXHJcbiAgICByZXR1cm4ge1xyXG4gICAgICAgIC8vIHB1YmxpYyBmdW5jdGlvbnNcclxuICAgICAgICBpbml0OiBmdW5jdGlvbigpIHtcclxuICAgICAgICAgICAgLy8gZGVmYXVsdCBjaGFydHNcclxuICAgICAgICAgICAgZGVtbzEoKTtcclxuICAgICAgICB9XHJcbiAgICB9O1xyXG59KCk7XHJcblxyXG5qUXVlcnkoZG9jdW1lbnQpLnJlYWR5KGZ1bmN0aW9uKCkge1xyXG4gICAgS1RqVmVjdG9yTWFwLmluaXQoKTtcclxufSk7Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/metronic/js/pages/features/maps/jvectormap.js\n");
-
-/***/ }),
-
-/***/ 143:
-/*!***********************************************************************!*\
-  !*** multi ./resources/metronic/js/pages/features/maps/jvectormap.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\features\maps\jvectormap.js */"./resources/metronic/js/pages/features/maps/jvectormap.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'brew'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'install'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'wget'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })
-
-/******/ });
+/******/ ]);

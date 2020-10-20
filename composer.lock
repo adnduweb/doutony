@@ -4,8 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "936737b2a7ad10ec99781208a5b6746b",
+    "content-hash": "58cfee1a25ac46ac14962ae63184f165",
     "packages": [
+        {
+            "name": "adnduweb/ci4_admin",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adnduweb/ci4_admin.git",
+                "reference": "8aa9152ae3bdef1e1486f001dc5e0363dcfb1372"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adnduweb/ci4_admin/zipball/8aa9152ae3bdef1e1486f001dc5e0363dcfb1372",
+                "reference": "8aa9152ae3bdef1e1486f001dc5e0363dcfb1372",
+                "shasum": ""
+            },
+            "require": {
+                "adnduweb/ci4_core": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Adnduweb\\Ci4Admin\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An Example of CodeIgniter 4 Admin module",
+            "time": "2020-10-20T19:58:41+00:00"
+        },
+        {
+            "name": "adnduweb/ci4_core",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adnduweb/ci4_core.git",
+                "reference": "fce300d3ca944e8d996c2c489bde7f23abac8204"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adnduweb/ci4_core/zipball/fce300d3ca944e8d996c2c489bde7f23abac8204",
+                "reference": "fce300d3ca944e8d996c2c489bde7f23abac8204",
+                "shasum": ""
+            },
+            "require": {
+                "adnduweb/ci4_admin": "*",
+                "joshtronic/php-loremipsum": "^1.0",
+                "michalsn/codeigniter4-uuid": "^1.0@beta",
+                "tatter/relations": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Adnduweb\\Ci4Core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An Example of CodeIgniter 4 Core module",
+            "time": "2020-10-20T20:32:08+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.9.1",
@@ -58,12 +121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeigniter4/CodeIgniter4.git",
-                "reference": "15ce9c58cf791362abafa9020d60470d3b834639"
+                "reference": "13ff147fa4cd9db15888b041ef35bc22ed94252a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeigniter4/CodeIgniter4/zipball/15ce9c58cf791362abafa9020d60470d3b834639",
-                "reference": "15ce9c58cf791362abafa9020d60470d3b834639",
+                "url": "https://api.github.com/repos/codeigniter4/CodeIgniter4/zipball/13ff147fa4cd9db15888b041ef35bc22ed94252a",
+                "reference": "13ff147fa4cd9db15888b041ef35bc22ed94252a",
                 "shasum": ""
             },
             "require": {
@@ -121,7 +184,7 @@
                 "slack": "https://codeigniterchat.slack.com",
                 "issues": "https://github.com/codeigniter4/CodeIgniter4/issues"
             },
-            "time": "2020-10-16T05:12:14+00:00"
+            "time": "2020-10-20T18:13:11+00:00"
         },
         {
             "name": "codeigniter4/translations",
@@ -420,56 +483,6 @@
                 "uuid"
             ],
             "time": "2020-08-16T07:56:20+00:00"
-        },
-        {
-            "name": "myth/auth",
-            "version": "1.0-beta.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lonnieezell/myth-auth.git",
-                "reference": "85572d1f1bb312d7d2e0a444b45531170773d2de"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lonnieezell/myth-auth/zipball/85572d1f1bb312d7d2e0a444b45531170773d2de",
-                "reference": "85572d1f1bb312d7d2e0a444b45531170773d2de",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "codeigniter4/codeigniter4": "dev-develop",
-                "fzaninotto/faker": "^1.9@dev",
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Myth\\Auth\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Lonnie Ezell",
-                    "email": "lonnieje@gmail.com",
-                    "homepage": "http://newmythmedia.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Flexible authentication/authorization system for CodeIgniter 4.",
-            "homepage": "https://github.com/lonnieezell/myth-auth",
-            "keywords": [
-                "Authentication",
-                "authorization",
-                "codeigniter"
-            ],
-            "time": "2020-05-12T04:56:34+00:00"
         },
         {
             "name": "psr/log",
@@ -2388,9 +2401,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "codeigniter4/codeigniter4": 20,
-        "myth/auth": 10,
         "codeigniter4/translations": 10,
-        "michalsn/codeigniter4-uuid": 10,
+        "adnduweb/ci4_core": 20,
         "fzaninotto/faker": 20
     },
     "prefer-stable": true,

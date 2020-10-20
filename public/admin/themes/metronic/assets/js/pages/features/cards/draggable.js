@@ -105,7 +105,7 @@ eval("\n\nvar KTCardDraggable = function () {\n  return {\n    //main function t
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\spreadci4\public\admin\themes\metronic\resources\metronic\js\pages\features\cards\draggable.js */"./resources/metronic/js/pages/features/cards/draggable.js");
+module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\features\cards\draggable.js */"./resources/metronic/js/pages/features/cards/draggable.js");
 
 
 /***/ })

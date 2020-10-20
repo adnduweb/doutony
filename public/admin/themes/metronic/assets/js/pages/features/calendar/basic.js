@@ -105,7 +105,7 @@ eval("\n\nvar KTCalendarBasic = function () {\n  return {\n    //main function t
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\spreadci4\public\admin\themes\metronic\resources\metronic\js\pages\features\calendar\basic.js */"./resources/metronic/js/pages/features/calendar/basic.js");
+module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\features\calendar\basic.js */"./resources/metronic/js/pages/features/calendar/basic.js");
 
 
 /***/ })

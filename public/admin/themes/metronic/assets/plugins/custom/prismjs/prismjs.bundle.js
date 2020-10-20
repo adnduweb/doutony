@@ -148,7 +148,7 @@ eval("// Prism - is a lightweight, extensible syntax highlighter, built with mod
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\spreadci4\public\admin\themes\metronic\resources\plugins\custom\prismjs\prismjs.js */"./resources/plugins/custom/prismjs/prismjs.js");
+module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\plugins\custom\prismjs\prismjs.js */"./resources/plugins/custom/prismjs/prismjs.js");
 
 
 /***/ })

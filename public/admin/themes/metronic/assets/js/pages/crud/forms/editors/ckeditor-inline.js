@@ -105,7 +105,7 @@ eval(" // Class definition\n\nvar KTCkeditorInline = function () {\n  // Private
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\spreadci4\public\admin\themes\metronic\resources\metronic\js\pages\crud\forms\editors\ckeditor-inline.js */"./resources/metronic/js/pages/crud/forms/editors/ckeditor-inline.js");
+module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\crud\forms\editors\ckeditor-inline.js */"./resources/metronic/js/pages/crud/forms/editors/ckeditor-inline.js");
 
 
 /***/ })

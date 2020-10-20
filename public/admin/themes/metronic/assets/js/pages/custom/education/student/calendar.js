@@ -105,7 +105,7 @@ eval("\n\nvar KTAppsEducationStudentCalendar = function () {\n  return {\n    //
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\spreadci4\public\admin\themes\metronic\resources\metronic\js\pages\custom\education\student\calendar.js */"./resources/metronic/js/pages/custom/education/student/calendar.js");
+module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\custom\education\student\calendar.js */"./resources/metronic/js/pages/custom/education/student/calendar.js");
 
 
 /***/ })
