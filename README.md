@@ -1,55 +1,58 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter 4 Application Doutony
 
-## What is CodeIgniter?
+Doutony App is a free, open-source, self-hosted CMS platform based on the CodeIgniter 4 PHP Framework.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure. 
-More information can be found at the [official site](http://codeigniter.com).
+Doutony App is designed to provide a quick start for sites made on CodeIgniter 4 and to take over the implementation of the basic functions of a modern web application.
 
-This repository holds a composer-installable app starter.
-It has been built from the 
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Installation
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+### Step 1
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/). 
+Create a new application using Composer:
 
-## Installation & updates
+```
+composer create-project --stability=dev --keep-vcs --prefer-dist adnduweb/doutony doutony
+```
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+The command installs the application in a directory named `doutony`. You can choose a different directory name if you want.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### Step 2
 
-## Setup
+Configure application settings (base url, timezone, database) in the `/.env` file.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### Step 3
 
-## Important Change with index.php
+Execute commands via shell:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+```
+php spark migrate -all
+```
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### Step 4
 
-**Please** read the user guide for a better explanation of how CI4 works!
-The user guide updating and deployment is a bit awkward at the moment, but we are working on it!
+Set document root to `/public` directory.
 
-## Repository Management
+## Backend
 
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Access backend by opening `http://example.com/admin/login` in a browser.
+```
+login: admin
+password: admin
+```
 
-This repository is a "distribution" one, built by our release preparation script. 
-Problems with it can be raised on our forum, or as issues in the main repository.
+You can change the administrator password in the `/App/Config/Admin.php` file.
+
+## Contributions
+[myth-auth](https://github.com/lonnieezell/myth-auth) (by [Leonnie Ezell](https://github.com/lonnieezell))
+[Codeigniter4 Relations](https://github.com/tattersoftware/codeigniter4-relations) (by [Tatter Software](https://github.com/tattersoftware))
+[Codeigniter4 Schemas](https://github.com/tattersoftware/codeigniter4-schemas) (by [Tatter Software](https://github.com/tattersoftware))
+[Basic App](https://github.com/basic-app/basic-app) (by [Basic App](https://github.com/basic-app))
 
 ## Server Requirements
+
+- Database (MySQL or MariaDB)
+- Composer
+- Webserver (Apache or Nginx)
 
 PHP version 7.2 or higher is required, with the following extensions installed: 
 

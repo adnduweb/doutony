@@ -45,6 +45,11 @@
     },
     "extra": {
         "Adnduweb\\Ci4Core\\Core\\BaseComposer::postCreateProject": {
+            "copy": [
+                {
+                    "env.exemple": ".env"              
+                }
+            ],
             "setPermission": [
                 {
                     "writable/cache": "0755",
