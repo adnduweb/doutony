@@ -1,25 +1,31 @@
 $(document).on("click", '.generer_mot_passe', function(e) {
-    $.post(basePath + segementAdmin + "/sp-admin-ajax", {
-            ajax: true,
-            controller: 'AdminUserController',
-            action: 'getPassword',
-            module: false,
-            value: null,
-            name_module: false
+    $.post(baseController + "/getPassword", {
+            [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
         },
         function(response, status) {
-            csrf_hash = response.csrf_token;
+            //csrf_hash = response.csrf_token;
 
-            if (status == 'success') {
+            if (response.error == false) {
                 $('.pass_confirm').val('');
                 $('.datapassword').val('');
                 $('#password').html('');
-                $('.datapassword').val(response.password);
-                $('.pass_confirm').val(response.password);
-                $('#password').html(response.password);
+                $('.datapassword').val(response.success.password);
+                $('.pass_confirm').val(response.success.password);
+                $('#password').html(response.success.password);
             }
         });
 });
+
+function createUsername() {
+    var fname = $('#kt_apps_user_create_user_form input[name=firstname]').val().substring(0, 1).toLowerCase();
+
+    var lname = $('#kt_apps_user_create_user_form input[name=lastname]').val().toLowerCase();
+    var username = fname + lname + Math.floor(Math.random() * (10000 + 1) + 1000);
+    $('#kt_apps_user_create_user_form input[name=username]').val(username);
+}
+
+$('#kt_apps_user_create_user_form input[name=firstname]').on('keyup', createUsername);
+$('#kt_apps_user_create_user_form input[name=lastname]').on('keyup', createUsername);
 
 
 $('.unmask').on('click', function() {
@@ -29,6 +35,8 @@ $('.unmask').on('click', function() {
         changeType($(this).prev('input'), 'password');
     return false;
 });
+
+
 
 /* 
   function from : https://gist.github.com/3559343
@@ -71,20 +79,64 @@ function changeType(x, type) {
 }
 
 
-var form = document.querySelector("#kt_apps_user_add_user_form");
-var input_mobile = document.querySelector("#mobile"),
-    input_phone = document.querySelector("#phone"),
-    errorMsgMobile = document.querySelector(".invalid-feedback-mobile"),
-    errorMsgPhone = document.querySelector(".invalid-feedback-phone");
+var input_phone = document.querySelector("#phone"),
+    errorMsgPhoneFixe = document.querySelector(".invalid-feedback-phone");
 //intlTelInput(input_mobile);
 
 // here, the index maps to the error code returned from getValidationError - see readme
 var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
 
+// initialise plugin
+var iti_phoneFixe = intlTelInput(input_phone, {
+    initialCountry: "auto",
+    allowDropdown: true,
+    geoIpLookup: function(callback) {
+        $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+            var countryCode = (resp && resp.country) ? resp.country : "";
+            callback(countryCode);
+        });
+    },
+    hiddenInput: "full_phone",
+    utilsScript: utils
+});
+
+var resetPhoneFixe = function() {
+    input_phone.classList.remove("error");
+    errorMsgPhoneFixe.innerHTML = "";
+    errorMsgPhoneFixe.classList.add("hide");
+    //validMsg.classList.add("hide");
+};
+
+// on blur: validate
+input_phone.addEventListener('blur', function() {
+    resetPhoneFixe();
+    if (input_phone.value.trim()) {
+        if (!iti_phoneFixe.isValidNumber()) {
+            input_phone.classList.add("error");
+            var errorCode = iti_phoneFixe.getValidationError();
+            errorMsgPhoneFixe.innerHTML = errorMap[errorCode];
+            errorMsgPhoneFixe.classList.remove("hide");
+        }
+    }
+});
+input_phone.addEventListener("countrychange", function(e, countryData) {
+    //var currentMask = e.currentTarget.placeholder;
+    var currentMask = $(this).attr('placeholder').replace(/[0-9+]/ig, '9');
+    $(this).attr('placeholder', currentMask);
+
+    $(input_phone).inputmask({ mask: currentMask, keepStatic: true });
+});
+input_phone.addEventListener('change', resetPhoneFixe);
+input_phone.addEventListener('keyup', resetPhoneFixe);
+
+var input_phone_mobile = document.querySelector("#phone_mobile"),
+    errorMsgPhoneMobile = document.querySelector(".invalid-feedback-phone_mobile");
+
+
 
 
 // initialise plugin
-var iti_mobile = intlTelInput(input_mobile, {
+var iti_phoneMobile = intlTelInput(input_phone_mobile, {
     initialCountry: "auto",
     geoIpLookup: function(callback) {
         $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
@@ -96,97 +148,43 @@ var iti_mobile = intlTelInput(input_mobile, {
     utilsScript: utils
 });
 
-var resetMobile = function() {
-    input_mobile.classList.remove("error");
-    errorMsgMobile.innerHTML = "";
-    errorMsgMobile.classList.add("hide");
+var resetPhoneMobile = function() {
+    input_phone_mobile.classList.remove("error");
+    errorMsgPhoneMobile.innerHTML = "";
+    errorMsgPhoneMobile.classList.add("hide");
     //validMsg.classList.add("hide");
 };
 
 // on blur: validate
-input_mobile.addEventListener('blur', function() {
-    resetMobile();
-    if (input_mobile.value.trim()) {
-        if (!iti_mobile.isValidNumber()) {
-            input_mobile.classList.add("error");
-            var errorCode = iti_mobile.getValidationError();
-            errorMsgMobile.innerHTML = errorMap[errorCode];
-            errorMsgMobile.classList.remove("hide");
+input_phone_mobile.addEventListener('blur', function() {
+    resetPhoneMobile();
+    if (input_phone_mobile.value.trim()) {
+        if (!iti_phoneMobile.isValidNumber()) {
+            input_phone_mobile.classList.add("error");
+            var errorCode = iti_phoneMobile.getValidationError();
+            errorMsgPhoneMobile.innerHTML = errorMap[errorCode];
+            errorMsgPhoneMobile.classList.remove("hide");
         }
     }
 });
-input_mobile.addEventListener("countrychange", function() {
+input_phone_mobile.addEventListener("countrychange", function(e, countryData) {
+    //var currentMask = e.currentTarget.placeholder;
     var currentMask = $(this).attr('placeholder').replace(/[0-9+]/ig, '9');
     $(this).attr('placeholder', currentMask);
-    $(input_mobile).inputmask({ mask: currentMask, keepStatic: true });
+
+    $(input_phone_mobile).inputmask({ mask: currentMask, keepStatic: true });
 });
-// on keyup / change flag: resetMobile
-input_mobile.addEventListener('change', resetMobile);
-input_mobile.addEventListener('keyup', resetMobile);
-
-form.addEventListener('submit', function(event) {
-    if (iti_mobile.isValidNumber() == false) {
-        event.preventDefault();
-        event.stopPropagation();
-    }
-    form.classList.add('was-validated');
-}, false);
-
-
-// initialise plugin
-var iti_phone = intlTelInput(input_phone, {
-    initialCountry: "auto",
-    geoIpLookup: function(callback) {
-        $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
-            var countryCode = (resp && resp.country) ? resp.country : "";
-            callback(countryCode);
-        });
-    },
-    hiddenInput: "full_phone",
-    utilsScript: utils
-});
-
-var resetPhone = function() {
-    input_phone.classList.remove("error");
-    errorMsgPhone.innerHTML = "";
-    errorMsgPhone.classList.add("hide");
-    //validMsg.classList.add("hide");
-};
-
-// on blur: validate
-input_phone.addEventListener('blur', function() {
-    resetPhone();
-    if (input_phone.value.trim()) {
-        if (!iti_phone.isValidNumber()) {
-            input_phone.classList.add("error");
-            var errorCode = iti_phone.getValidationError();
-            errorMsgPhone.innerHTML = errorMap[errorCode];
-            errorMsgPhone.classList.remove("hide");
-        }
-    }
-});
-input_phone.addEventListener("countrychange", function() {
-    console.log('cxvhghdd');
-    var currentMask = $(this).attr('placeholder').replace(/[0-9+]/ig, '9');
-    $(this).attr('placeholder', currentMask);
-    $(input_phone).inputmask({ mask: currentMask, keepStatic: true });
-});
-
-input_phone.addEventListener('change', resetPhone);
-input_phone.addEventListener('keyup', resetPhone);
+input_phone_mobile.addEventListener('change', resetPhoneMobile);
+input_phone_mobile.addEventListener('keyup', resetPhoneMobile);
 
 
 
 $(document).on("click", '.deleteSession', function(e) {
     var session_en_cours = $(this).data('session_en_cours');
     var id = $(this).attr('id')
-    $.post(basePath + segementAdmin + "/sp-admin-ajax", {
-            ajax: true,
-            controller: 'AdminUserController',
-            action: 'deleteSession',
-            module: false,
+    $.post(baseController + "/deleteSession", {
+            [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
             value: session_en_cours,
-            name_module: false
         },
         function(response, status) {
             csrf_hash = response.csrf_token;

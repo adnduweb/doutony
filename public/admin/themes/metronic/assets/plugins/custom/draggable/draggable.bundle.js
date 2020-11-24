@@ -225,7 +225,7 @@ eval("// Draggable - a lightweight, responsive, modern drag & drop library: http
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\plugins\custom\draggable\draggable.js */"./resources/plugins/custom/draggable/draggable.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/spreadci4/public/admin/themes/metronic/resources/plugins/custom/draggable/draggable.js */"./resources/plugins/custom/draggable/draggable.js");
 
 
 /***/ })

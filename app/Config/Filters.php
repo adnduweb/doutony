@@ -7,16 +7,19 @@ class Filters extends BaseConfig
 	// Makes reading things below nicer,
 	// and simpler to change out script that's used.
 	public $aliases = [
-		'csrf'     => \CodeIgniter\Filters\CSRF::class,
-		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
-		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+		'csrf'       => \CodeIgniter\Filters\CSRF::class,
+		'toolbar'    => \CodeIgniter\Filters\DebugToolbar::class,
+		'honeypot'   => \CodeIgniter\Filters\Honeypot::class,
+		'login'      => \Adnduweb\Ci4Admin\Filters\LoginFilter::class,
+		'role'       => \Adnduweb\Ci4Admin\Filters\RoleFilter::class,
+		'permission' => \Adnduweb\Ci4Admin\Filters\PermissionFilter::class,
 	];
 
 	// Always applied before every request
 	public $globals = [
 		'before' => [
 			//'honeypot'
-			'csrf',
+			'csrf' => ['except' => ['/' . CI_AREA_ADMIN, '/login', '/'.CI_AREA_ADMIN.'/international/translate/searchTexte']],
 		],
 		'after'  => [
 			'toolbar',

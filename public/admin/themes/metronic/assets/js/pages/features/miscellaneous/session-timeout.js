@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 152);
+/******/ 	return __webpack_require__(__webpack_require__.s = 155);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,14 +98,14 @@ eval("\n\nvar KTSessionTimeoutDemo = function () {\n  var initDemo = function in
 
 /***/ }),
 
-/***/ 152:
+/***/ 155:
 /*!*************************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/miscellaneous/session-timeout.js ***!
   \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\features\miscellaneous\session-timeout.js */"./resources/metronic/js/pages/features/miscellaneous/session-timeout.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/spreadci4/public/admin/themes/metronic/resources/metronic/js/pages/features/miscellaneous/session-timeout.js */"./resources/metronic/js/pages/features/miscellaneous/session-timeout.js");
 
 
 /***/ })

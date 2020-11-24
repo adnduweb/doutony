@@ -105,7 +105,7 @@ eval(" // Class definition\n\nvar KTDatatableRemoteAjaxDemo = function () {\n  /
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\crud\ktdatatable\base\data-ajax.js */"./resources/metronic/js/pages/crud/ktdatatable/base/data-ajax.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/spreadci4/public/admin/themes/metronic/resources/metronic/js/pages/crud/ktdatatable/base/data-ajax.js */"./resources/metronic/js/pages/crud/ktdatatable/base/data-ajax.js");
 
 
 /***/ })

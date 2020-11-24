@@ -171,7 +171,14 @@ var KTInputmask = {
         $(".currency").inputmask("9.999999", {
             placeholder: "1.000000",
             autoUnmask: !0
-        })
+        });
+
+        $(".phone_international").each(function(i) {
+            var id = $(this).attr("id");
+            var currentMask = $("#" + id).attr('placeholder').replace(/[0-9+]/ig, '9');
+            $("#" + id).inputmask({ mask: currentMask, keepStatic: true });
+        });
+
     }
 };
 jQuery(document).ready(function() {
@@ -221,69 +228,46 @@ if ('serviceWorker' in navigator) {
 
 $.ajaxSetup({
     headers: {
-        'X-CSRF-TOKEN': token_hash,
-        'X-Requested-With': 'XMLHttpRequest'
+        'X-CSRF-TOKEN': $('meta[name="X-CSRF-TOKEN"]').attr('content')
     },
     beforeSend: function(jqXHR, settings) {
+
         var params = settings.url.indexOf('?');
-        if (params)
+        if (params <= 0)
             settings.url = settings.url + '?time=' + $.now();
         else
-        //     settings.url = settings.url + '&time=' + $.now();
+            settings.url = settings.url + '&time=' + $.now();
+
         if (env == 'development') {
-            console.log(jqXHR);
-            console.log(settings);
+            // console.log(jqXHR);
+            // console.log(settings);
         }
     },
-    error: function(xhr, ajaxOptions, thrownError) {
-        if (env == 'development') {
-            if (typeof xhr.responseJSON === "undefined") {
-                $("#requestJavascriptDev").html(xhr.responseText);
-            } else {
-                $.notify({
-                    title: 'Erreur',
-                    message: 'Code: ' + xhr.status + ' <br> Message: ' + xhr.responseJSON.message
-                }, {
-                    type: 'warning',
-                    placement: {
-                        from: 'top',
-                        align: 'right'
-                    },
-                });
-            }
-        } else {
-            console.log(xhr);
-            if (xhr.status == 400) {
-                $.each(xhr.responseJSON.messages, function(cle, valeur) {
-                    //alert(_LANG_[cle] + ' : ' + _LANG_[valeur]);
-                    $.notify({
-                        title: 'Erreur',
-                        message: 'Code: ' + _LANG_[cle] + ' <br> Message: ' + _LANG_[valeur]
-                    }, {
-                        type: 'warning',
-                        placement: {
-                            from: 'top',
-                            align: 'right'
-                        },
-                    });
-                });
-            }
-            if (xhr.status == 403) {
-                //alert(_LANG_.error + ' 403 : ' + _LANG_[xhr.statusText]);
-                $.notify({
-                    title: 'Erreur',
-                    message: 'Code: 403 <br> Message: ' + _LANG_[xhr.statusText]
-                }, {
-                    type: 'warning',
-                    placement: {
-                        from: 'top',
-                        align: 'right'
-                    },
-                });
-            }
+    complete: function(jqXHR, settings) {
+
+        // Update CSRF hash
+        if (jqXHR.status == 200) {
+            $('meta[name="X-CSRF-TOKEN"]').attr('content', jqXHR.responseJSON.[crsftoken]);
+            $('input[name="' + crsftoken + '"]').attr('value', jqXHR.responseJSON.[crsftoken]);
         }
 
-        //alert(thrownError);
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+        //console.log(xhr);
+        var code = xhr.responseJSON.error.code == 0 ? xhr.status : xhr.responseJSON.error.code;
+        $('meta[name="X-CSRF-TOKEN"]').attr('content', xhr.responseJSON.[crsftoken]);
+        $('input[name="' + crsftoken + '"]').attr('value', xhr.responseJSON.[crsftoken]);
+        $.notify({
+            title: 'Erreur',
+            //message: 'Code: ' + xhr.status + ' <br> Message: ' + xhr.responseJSON.message
+            message: 'Code: ' + code + ' <br> Message: ' + xhr.responseJSON.error.message
+        }, {
+            type: (code == 500) ? 'danger' : 'warning',
+            placement: {
+                from: 'top',
+                align: 'right'
+            },
+        });
     }
 });
 
@@ -403,60 +387,60 @@ $(document).on("click", "#kt_aside_toggle", function(e) {
  * ACTION GENERIQUE 
  **************************/
 
-$(document).on("click", ".actioncontroller", function(e) {
+// $(document).on("click", ".actioncontroller", function(e) {
 
-    e.preventDefault();
-    var controller = $(this).data('controller').substr(0, 1).toUpperCase() + $(this).data('controller').substr(1);
-    var value = $(this).data('value');
-    var module = $(this).data('module');
-    $.ajax({
-        type: 'POST',
-        url: basePath + segementAdmin + "/sp-admin-ajax",
-        data: {
-            ajax: true,
-            controller: 'Admin' + controller + 'Controller',
-            action: $(this).data('action'),
-            module: module,
-            value: value,
-            name_module: $(this).data('namemodule'),
-        },
-        dataType: "json",
-        success: function(response) {
-            if (response.statut == true) {
-                if (response.display == "modal") {
-                    $('#kt_modal_loading_wrapper').html(response.message);
-                    $('#kt_modal_loading').modal('show'); //now its working
-                    KTApp.initTooltips();
-                } else {
-                    if (response.database == "reload") {
-                        $(".kt-datatable").KTDatatable().reload();
-                        alert(response.message);
-                    }
-                }
-                if (response.retunAjax) {
-                    $.each(response.retunAjax, function(cle, valeur) {
-                        $(cle).html(valeur);
-                    });
-                }
-                if (response.reload) {
-                    Swal.fire({
-                        title: _LANG_.success + "!",
-                        text: response.message,
-                        type: "success",
-                        buttonsStyling: !1,
-                        confirmButtonText: "OK",
-                        confirmButtonClass: "btn btn-sm btn-bold btn-dark"
-                    });
-                    if (response.reload) {
-                        setTimeout(function() {
-                            window.location.reload();
-                        }, 1000);
-                    }
-                }
-            }
-        }
-    });
-});
+//     e.preventDefault();
+//     var controller = $(this).data('controller').substr(0, 1).toUpperCase() + $(this).data('controller').substr(1);
+//     var value = $(this).data('value');
+//     var module = $(this).data('module');
+//     $.ajax({
+//         type: 'POST',
+//         url: basePath + segementAdmin + "/sp-admin-ajax", 
+//         data: {
+//             ajax: true,
+//             controller: 'Admin' + controller + 'Controller',
+//             action: $(this).data('action'),
+//             module: module,
+//             value: value,
+//             name_module: $(this).data('namemodule'),
+//         },
+//         dataType: "json",
+//         success: function(response) {
+//             if (response.statut == true) {
+//                 if (response.display == "modal") {
+//                     $('#kt_modal_loading_wrapper').html(response.message);
+//                     $('#kt_modal_loading').modal('show'); //now its working
+//                     KTApp.initTooltips();
+//                 } else {
+//                     if (response.database == "reload") {
+//                         $(".kt-datatable").KTDatatable().reload();
+//                         alert(response.message);
+//                     }
+//                 }
+//                 if (response.retunAjax) {
+//                     $.each(response.retunAjax, function(cle, valeur) {
+//                         $(cle).html(valeur);
+//                     });
+//                 }
+//                 if (response.reload) {
+//                     Swal.fire({
+//                         title: _LANG_.success + "!",
+//                         text: response.message,
+//                         type: "success",
+//                         buttonsStyling: !1,
+//                         confirmButtonText: "OK",
+//                         confirmButtonClass: "btn btn-sm btn-bold btn-dark"
+//                     });
+//                     if (response.reload) {
+//                         setTimeout(function() {
+//                             window.location.reload();
+//                         }, 1000);
+//                     }
+//                 }
+//             }
+//         }
+//     });
+// });
 
 $(document).on("click", ".deleterowKtdatatable", function(e) {
     e.preventDefault();

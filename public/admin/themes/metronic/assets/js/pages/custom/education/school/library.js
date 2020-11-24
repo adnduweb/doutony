@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 104);
+/******/ 	return __webpack_require__(__webpack_require__.s = 106);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,14 +98,14 @@ eval(" // Class definition\n\nvar KTAppsEducationSchoolLibrary = function () {\n
 
 /***/ }),
 
-/***/ 104:
+/***/ 106:
 /*!******************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/custom/education/school/library.js ***!
   \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\wamp64\www\adnsite\public\admin\themes\metronic\resources\metronic\js\pages\custom\education\school\library.js */"./resources/metronic/js/pages/custom/education/school/library.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/spreadci4/public/admin/themes/metronic/resources/metronic/js/pages/custom/education/school/library.js */"./resources/metronic/js/pages/custom/education/school/library.js");
 
 
 /***/ })

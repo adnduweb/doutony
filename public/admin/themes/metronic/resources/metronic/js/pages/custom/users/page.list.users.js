@@ -9,13 +9,9 @@ var KTAppUserListDatatable = function() {
                         source: {
                             read: {
                                 url: current_url + "/list",
+                                method: 'GET',
                                 params: {
-                                    ajax: true,
-                                    // controller: 'AdminUserController',
-                                    // action: 'list',
-                                    value: '',
-                                    module: false,
-                                    company_id: company_id
+                                    [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
                                 }
                             }
                         },
@@ -62,6 +58,10 @@ var KTAppUserListDatatable = function() {
                             if (data.active == '0') {
                                 row.addClass('notactive');
                             }
+
+                        },
+                        callback: function(row, data, index) {
+
                         }
                     },
                     columns: [{
@@ -167,7 +167,7 @@ var KTAppUserListDatatable = function() {
                                 $(t.group).each(function(index, value) {
                                     groupName += value.name + ', ';
                                 });
-                                return '<span data-statut=' + t.active + ' class="btn btn-bold btn-sm btn-font-sm  btn-' + e[t.group[0].group_id].class + ' mr-2 px-2">' + groupName + "</span>"
+                                return '<span data-group=' + t.active + ' class="btn btn-bold btn-sm btn-font-sm  btn-' + e[t.group[0].group_id].class + ' mr-2 px-2">' + groupName + "</span>"
                             }
                         }, {
                             //$type (1 = publied, 2 = wait corrected, 3 = wait publied, 4 = brouillon)
@@ -176,10 +176,11 @@ var KTAppUserListDatatable = function() {
                             sortable: !1,
                             width: 150,
                             template: function(t) {
-                                if (t.active == 1) { var active = 'btn-light-success'; } else { var active = 'btn-light-danger'; }
-                                if (t.active == 1) { var textActive = _LANG_.active; } else { var textActive = _LANG_.desactive; }
-                                if (t.active == 1) { var idActive = 0; } else { var idActive = 1; }
-                                var template = '<a href="javascript:;" data-statut="' + idActive + '" data-id="' + t.id + '" class="actionActive btn btn-bold btn-sm btn-font-sm ' + active + '">' + textActive + '</a>';
+                                if (t.active == "1") { var classActive = 'btn-light-success'; } else { var classActive = 'btn-light-danger'; }
+                                if (t.active == "1") { var textActive = _LANG_.active; } else { var textActive = _LANG_.desactive; }
+                                if (t.active == '1') { var idActive = '0'; } else { var idActive = '1'; }
+
+                                var template = '<a href="javascript:;" data-statut="' + idActive + '" data-id="' + t.uuid + '" class="actionActive btn btn-bold btn-sm btn-font-sm ' + classActive + '">' + textActive + '</a>';
                                 return template;
 
                             }
@@ -209,10 +210,6 @@ var KTAppUserListDatatable = function() {
                                         superAdmin = true;
                                     }
                                 });
-                                // console.log(superAdmin);
-                                // console.log(checkValue(1, id_group));
-                                // console.log(groupUser);
-                                // console.log(id_group);
                                 if ((superAdmin == true && !$.checkValue(1, id_group)) || t.id == '1') {
                                     if (user_uuid == t.uuid) {
                                         var template = '<div class="dropdown">\
@@ -248,7 +245,7 @@ var KTAppUserListDatatable = function() {
                                 <span class="navi-text">' + _LANG_.view + '</span>\
                                 </a></li>';
                                     //console.log(id_group.indexOf(groupUser));
-                                    if ((superAdmin == true && checkValue(1, id_group)) || (superAdmin == false)) {
+                                    if ((superAdmin == true && $.checkValue(1, id_group)) || (superAdmin == false)) {
                                         template += '<li class="navi-item">\
                                 <a href="' + startUrl + '/settings-advanced/users/edit/' + t.uuid + '" class="navi-link">\
                                 <span class="navi-icon"><i class="flaticon2-contract"></i></span>\
@@ -298,10 +295,10 @@ var KTAppUserListDatatable = function() {
                 }),
                 $("#kt_subheader_group_actions_status_change").on("click", "[data-toggle='status-change']", function(event) {
                     event.preventDefault();
-                    var e = $(this).find(".nav__link-text").html(),
-                        st = $(this).find(".nav__link-text").data('status'),
+                    var e = $(this).find(".navi-link-text").html(),
+                        st = $(this).find(".navi-link-text").data('status'),
                         a = t.rows(".datatable-row-active").nodes().find('.checkbox-single > [type="checkbox"]').map(function(t, e) {
-                            return $(e).val()
+                            return { uuid: $(e).val(), active: st }
                         });
                     a.length > 0 && swal.fire({
                         buttonsStyling: !1,
@@ -316,26 +313,20 @@ var KTAppUserListDatatable = function() {
                         if (t.value) {
                             $.ajax({
                                 type: 'POST',
-                                url: basePath + segementAdmin + "/sp-admin-ajax",
+                                url: current_url + "/ajaxUpdate",
                                 data: {
-                                    ajax: true,
-                                    controller: 'AdminUserController',
-                                    action: 'update',
-                                    value: {
-                                        selected: a.get(),
-                                        active: st
-                                    },
-                                    module: false
+                                    [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
+                                    value: a.get()
                                 },
                                 dataType: "json",
                                 success: function(result, status, xhr) {
 
                                     if (xhr.status == 200) {
                                         $.notify({
-                                            title: _LANG_.updated + "!",
-                                            message: result.message
+                                            title: (result.success.message) ? _LANG_.updated + "!" : _LANG_.warning + "!",
+                                            message: (result.success.message) ? result.success.message : result.error.message
                                         }, {
-                                            type: 'success'
+                                            type: (result.success.message) ? 'success' : 'warning'
                                         });
                                         $("#kt_apps_user_list_datatable").KTDatatable().reload();
                                     }
@@ -346,7 +337,7 @@ var KTAppUserListDatatable = function() {
                                 title: _LANG_.cancelled,
                                 message: _LANG_.your_seleted_records_statuses_have_not_been_updated
                             }, {
-                                type: 'info'
+                                type: 'primary'
                             });
                         }
                     })
@@ -368,16 +359,11 @@ var KTAppUserListDatatable = function() {
                         if (t.value) {
                             var selected = e.get();
                             $.ajax({
-                                type: 'POST',
-                                url: basePath + segementAdmin + "/sp-admin-ajax",
+                                type: 'DELETE',
+                                url: current_url + "/delete",
                                 data: {
-                                    ajax: true,
-                                    controller: 'AdminUserController',
-                                    action: 'delete',
-                                    value: {
-                                        selected: selected
-                                    },
-                                    module: false
+                                    [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
+                                    uuid: selected
                                 },
                                 dataType: "json",
                                 success: function(result, status, xhr) {
@@ -386,10 +372,10 @@ var KTAppUserListDatatable = function() {
                                         var kt_subheader_total = $('.kt_subheader_total').text();
                                         $('.kt_subheader_total').html((kt_subheader_total - selected.length));
                                         $.notify({
-                                            title: _LANG_.deleted + "!",
-                                            message: result.message
+                                            title: (result.success.message) ? _LANG_.deleted + "!" : _LANG_.warning + "!",
+                                            message: (result.success.message) ? result.success.message : result.error.message
                                         }, {
-                                            type: result.type
+                                            type: (result.success.message) ? 'success' : 'warning'
                                         });
                                         $("#kt_apps_user_list_datatable").KTDatatable().reload();
                                     }
@@ -411,37 +397,62 @@ var KTAppUserListDatatable = function() {
 }();
 KTUtil.ready(function() {
     KTAppUserListDatatable.init();
+
+    //Update
     $(document).on("click", ".actionActive", function(e) {
         e.preventDefault();
         var statut = $(this).attr('data-statut');
-        var id = $(this).attr('data-id');
+        var uuid = $(this).attr('data-id');
+        var value = [];
         $.ajax({
             type: 'POST',
-            url: basePath + segementAdmin + "/sp-admin-ajax",
+            url: current_url + "/ajaxUpdate",
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             data: {
-                ajax: true,
-                controller: 'AdminUserController',
-                action: 'changeStatut',
-                value: {
-                    statut: statut,
-                    id: id
-                },
-                module: false
+                [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
+                value: [{
+                    uuid: uuid,
+                    active: statut
+                }]
             },
             dataType: "json",
             success: function(result, status, xhr) {
                 if (xhr.status == 200) {
                     $.notify({
-                        title: _LANG_.updated + "!",
-                        message: result.message
+                        title: (result.success.message) ? _LANG_.updated + "!" : _LANG_.warning + "!",
+                        message: (result.success.message) ? result.success.message : result.error.message
                     }, {
-                        type: result.type
+                        type: (result.success.message) ? 'success' : 'warning'
                     });
                     $("#kt_apps_user_list_datatable").KTDatatable().reload();
-
                 }
             }
         })
     });
 
+    //show
+    $(document).on("click", ".actioncontroller", function(e) {
+        e.preventDefault();
+        var value = $(this).data('value');
+
+        $.ajax({
+            type: 'GET',
+            url: current_url + "/show/" + value,
+            data: {
+                [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
+            },
+            dataType: "json",
+            success: function(response, status, xhr) {
+                if (xhr.status == 200) {
+                    if (response.error == false) {
+                        $('#kt_modal_loading_wrapper').html(response.success.message);
+                        $('#kt_modal_loading').modal('show'); //now its working
+                        KTApp.initTooltips();
+                    }
+
+                    // $("#kt_apps_user_list_datatable").KTDatatable().reload();
+                }
+            }
+        });
+    });
 });

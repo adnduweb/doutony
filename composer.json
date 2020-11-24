@@ -20,8 +20,7 @@
         "adnduweb/ci4_core": "dev-main"
     },
     "require-dev": {
-        "fzaninotto/faker": "^1.9@dev",
-        "mikey179/vfsstream": "1.6.*",
+        "mikey179/vfsstream": "^1.6",
         "phpunit/phpunit": "^8.5"
     },
     "autoload-dev": {
@@ -45,20 +44,16 @@
     },
     "extra": {
         "Adnduweb\\Ci4Core\\Core\\BaseComposer::postCreateProject": {
-            "copy": [
-                {
-                    "env.exemple": ".env"              
-                }
-            ],
-            "setPermission": [
-                {
-                    "writable/cache": "0755",
-                    "writable/debugbar": "0755",
-                    "writable/logs": "0755",
-                    "writable/session": "0755",
-                    "writable/uploads": "0755"
-                }
-            ]
+            "copy": [{
+                "env.exemple": ".env"
+            }],
+            "setPermission": [{
+                "writable/cache": "0755",
+                "writable/debugbar": "0755",
+                "writable/logs": "0755",
+                "writable/session": "0755",
+                "writable/uploads": "0755"
+            }]
         }
     },
     "support": {

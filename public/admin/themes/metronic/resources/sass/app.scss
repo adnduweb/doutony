@@ -2457,3 +2457,16 @@ body {
     position: relative;
     left: -23px;
 }
+
+.form-control[readonly] {
+    background-color: #e0e0e0 !important;
+    cursor: not-allowed;
+}
+
+.controller_users .timeline.timeline-6 .timeline-item .timeline-label {
+    width: 130px;
+}
+
+.controller_users .timeline.timeline-6:before {
+    left: 110.5px;
+}

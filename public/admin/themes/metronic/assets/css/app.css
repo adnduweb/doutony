@@ -1511,6 +1511,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   position: absolute;
   z-index: 6;
   display: none;
+  outline: none;
 }
 
 .CodeMirror-vscrollbar {
@@ -1733,13 +1734,13 @@ span.CodeMirror-selectedtext {
 }
 
 /*!
- * Cropper.js v1.5.7
+ * Cropper.js v1.5.9
  * https://fengyuanchen.github.io/cropperjs
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2020-05-23T05:22:57.283Z
+ * Date: 2020-09-10T13:16:21.689Z
  */
 .cropper-container {
   direction: ltr;
@@ -4457,4 +4458,17 @@ body {
   width: 59px;
   position: relative;
   left: -23px;
+}
+
+.form-control[readonly] {
+  background-color: #e0e0e0 !important;
+  cursor: not-allowed;
+}
+
+.controller_users .timeline.timeline-6 .timeline-item .timeline-label {
+  width: 130px;
+}
+
+.controller_users .timeline.timeline-6:before {
+  left: 110.5px;
 }

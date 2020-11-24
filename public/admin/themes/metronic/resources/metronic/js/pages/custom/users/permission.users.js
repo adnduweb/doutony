@@ -7,27 +7,20 @@ $(document).on("click", ".checkbox input.permission_group", function(e) {
     var $val = $(this).val();
     $.ajax({
         type: 'POST',
-        url: basePath + segementAdmin + "/sp-admin-ajax",
+        url: baseController + "/savePermissions",
         data: {
-            ajax: true,
-            controller: 'AdminUserController',
-            action: 'updatePermission',
-            module: false,
+            [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
             value: $val,
             crud: $action,
         },
         dataType: "json",
         success: function(response) {
-            if (response.status == true) {
+            if (response.error == false) {
                 $.notify({
-                    title: response.type,
-                    message: response.message
+                    title: _LANG_.updated + "!",
+                    message: response.success.message
                 }, {
-                    type: 'success',
-                    placement: {
-                        from: 'top',
-                        align: 'right'
-                    },
+                    type: 'success'
                 });
             }
         }

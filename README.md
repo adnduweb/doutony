@@ -18,7 +18,11 @@ The command installs the application in a directory named `doutony`. You can cho
 
 ### Step 2
 
-Configure application settings (base url, timezone, database) in the `/.env` file.
+Execute commands via shell:
+
+```
+php spark install:core
+```
 
 ### Step 3
 
@@ -26,6 +30,7 @@ Execute commands via shell:
 
 ```
 php spark migrate -all
+php spark db:seed \\Adnduweb\\Ci4Core\\Database\\Seeds\\InitializeCore
 ```
 
 ### Step 4
