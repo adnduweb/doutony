@@ -101,7 +101,7 @@ _modules/*
 
 # Netbeans
 nbproject/
-build/
+build/*
 nbbuild/
 dist/
 nbdist/
@@ -127,4 +127,4 @@ nb-configuration.xml
 
 app/modules/*
 public/admin/themes/metronic/node_modules/*
-app/language/*
+app/Language/*
