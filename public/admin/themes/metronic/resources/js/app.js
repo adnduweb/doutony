@@ -188,8 +188,8 @@ jQuery(document).ready(function() {
 var KTBootstrapMaxlength = {
     init: function() {
         $(".line3").maxlength({
-            warningClass: "kt-badge kt-badge--warning kt-badge--rounded kt-badge--inline",
-            limitReachedClass: "kt-badge kt-badge--success kt-badge--rounded kt-badge--inline"
+            warningClass: "label label-warning label-rounded label-inline",
+            limitReachedClass: "label label-success label-rounded label-inline"
         })
     }
 };

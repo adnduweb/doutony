@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 113);
+/******/ 	return __webpack_require__(__webpack_require__.s = 115);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTAppInbox = function () {\n  // Private prope
 
 /***/ }),
 
-/***/ 113:
+/***/ 115:
 /*!*****************************************************************!*\
   !*** multi ./resources/metronic/js/pages/custom/inbox/inbox.js ***!
   \*****************************************************************/

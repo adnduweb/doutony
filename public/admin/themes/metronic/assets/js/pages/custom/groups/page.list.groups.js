@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 111);
+/******/ 	return __webpack_require__(__webpack_require__.s = 113);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval("\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.d
 
 /***/ }),
 
-/***/ 111:
+/***/ 113:
 /*!*****************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/custom/groups/page.list.groups.js ***!
   \*****************************************************************************/

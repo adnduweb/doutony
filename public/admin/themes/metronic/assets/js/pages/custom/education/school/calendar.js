@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 105);
+/******/ 	return __webpack_require__(__webpack_require__.s = 106);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval("\n\nvar KTAppsEducationSchoolCalendar = function () {\n  return {\n    //m
 
 /***/ }),
 
-/***/ 105:
+/***/ 106:
 /*!*******************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/custom/education/school/calendar.js ***!
   \*******************************************************************************/

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 114);
+/******/ 	return __webpack_require__(__webpack_require__.s = 116);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class Definition\n\nfunction _typeof(obj) { \"@babel/helpers - typeof\
 
 /***/ }),
 
-/***/ 114:
+/***/ 116:
 /*!*******************************************************************!*\
   !*** multi ./resources/metronic/js/pages/custom/login/login-4.js ***!
   \*******************************************************************/

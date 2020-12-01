@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 157);
+/******/ 	return __webpack_require__(__webpack_require__.s = 163);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTSweetAlert2Demo = function () {\n  var _init
 
 /***/ }),
 
-/***/ 157:
+/***/ 163:
 /*!*********************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/miscellaneous/sweetalert2.js ***!
   \*********************************************************************************/

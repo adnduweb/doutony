@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 134);
+/******/ 	return __webpack_require__(__webpack_require__.s = 140);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval("\n\nvar KTCalendarListView = function () {\n  return {\n    //main functio
 
 /***/ }),
 
-/***/ 134:
+/***/ 140:
 /*!**************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/calendar/list-view.js ***!
   \**************************************************************************/

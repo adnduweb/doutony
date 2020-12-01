@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 161);
+/******/ 	return __webpack_require__(__webpack_require__.s = 167);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTWidgets = function () {\n  // Private proper
 
 /***/ }),
 
-/***/ 161:
+/***/ 167:
 /*!******************************************************!*\
   !*** multi ./resources/metronic/js/pages/widgets.js ***!
   \******************************************************/

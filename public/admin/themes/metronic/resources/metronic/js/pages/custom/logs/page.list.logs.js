@@ -82,14 +82,14 @@ var KTAppUserListDatatable = function() {
                         field: "source_id",
                         title: _LANG_.source_id,
                         type: "source_id",
-                        sortable: !1,
+                        //sortable: !1,
                         //width: 100,
 
                     }, {
-                        field: "username",
+                        field: "user_id",
                         title: _LANG_.user_id,
                         type: "user_id",
-                        sortable: !1,
+                        //sortable: !1,
                         template: function(t) {
                                 return '<div class="capitalize text-dark-75 font-weight-bolder font-size-lg mb-0">' + t.username + '</div>';
                             }

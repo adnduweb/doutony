@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 144);
+/******/ 	return __webpack_require__(__webpack_require__.s = 150);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTGoogleMapsDemo = function () {\n  // Private
 
 /***/ }),
 
-/***/ 144:
+/***/ 150:
 /*!************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/maps/google-maps.js ***!
   \************************************************************************/
