@@ -64,6 +64,7 @@ var KTLogin = function() {
                     params: {
                         login: form.querySelector('[name="login"]').value,
                         password: form.querySelector('[name="password"]').value,
+                        remember: form.querySelector('[name="remember"]').value
                     },
                 }).then(function(response) { // Return valid JSON
                     // Release button
@@ -165,7 +166,8 @@ var KTLogin = function() {
                 // Form Validation & Ajax Submission: https://formvalidation.io/guide/examples/using-ajax-to-submit-the-form
                 FormValidation.utils.fetch(formSubmitUrl, {
                     headers: {
-                        'X-CSRF-TOKEN': token_hash,
+                        //'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRF-TOKEN': $('meta[name="X-CSRF-TOKEN"]').attr('content'),
                     },
                     method: 'POST',
                     dataType: 'json',
@@ -175,6 +177,7 @@ var KTLogin = function() {
                 }).then(function(response) { // Return valid JSON
                     // Release button
                     KTUtil.btnRelease(formSubmitButton);
+                    $('meta[name="X-CSRF-TOKEN"]').attr('content', response.token);
 
                     if (response && typeof response === 'object' && response.status && response.status == 'success') {
                         Swal.fire({
@@ -269,7 +272,8 @@ var KTLogin = function() {
                 // Form Validation & Ajax Submission: https://formvalidation.io/guide/examples/using-ajax-to-submit-the-form
                 FormValidation.utils.fetch(formSubmitUrl, {
                     headers: {
-                        'X-CSRF-TOKEN': token_hash,
+                        //'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRF-TOKEN': $('meta[name="X-CSRF-TOKEN"]').attr('content'),
                     },
                     method: 'POST',
                     dataType: 'json',
@@ -282,6 +286,7 @@ var KTLogin = function() {
                 }).then(function(response) { // Return valid JSON
                     // Release button
                     KTUtil.btnRelease(formSubmitButton);
+                    $('meta[name="X-CSRF-TOKEN"]').attr('content', response.token);
 
                     if (response && typeof response === 'object' && response.status && response.status == 'success') {
                         Swal.fire({
