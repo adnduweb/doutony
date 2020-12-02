@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 164);
+/******/ 	return __webpack_require__(__webpack_require__.s = 165);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTToastrDemo = function () {\n  // Private fun
 
 /***/ }),
 
-/***/ 164:
+/***/ 165:
 /*!****************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/miscellaneous/toastr.js ***!
   \****************************************************************************/

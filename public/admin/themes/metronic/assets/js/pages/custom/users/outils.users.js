@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 126);
+/******/ 	return __webpack_require__(__webpack_require__.s = 127);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,7 +97,7 @@ eval("function _defineProperty(obj, key, value) { if (key in obj) { Object.defin
 
 /***/ }),
 
-/***/ 126:
+/***/ 127:
 /*!************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/custom/users/outils.users.js ***!
   \************************************************************************/

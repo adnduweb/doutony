@@ -143,6 +143,7 @@
     "/assets/js/pages/custom/profile/profile.js": "/assets/js/pages/custom/profile/profile.js",
     "/assets/js/pages/custom/projects/add-project.js": "/assets/js/pages/custom/projects/add-project.js",
     "/assets/js/pages/custom/projects/list-datatable.js": "/assets/js/pages/custom/projects/list-datatable.js",
+    "/assets/js/pages/custom/taxes/page.list.taxes.js": "/assets/js/pages/custom/taxes/page.list.taxes.js",
     "/assets/js/pages/custom/todo/todo.js": "/assets/js/pages/custom/todo/todo.js",
     "/assets/js/pages/custom/translate/app.translate.js": "/assets/js/pages/custom/translate/app.translate.js",
     "/assets/js/pages/custom/users/outils.users.js": "/assets/js/pages/custom/users/outils.users.js",

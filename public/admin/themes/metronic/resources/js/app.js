@@ -175,8 +175,12 @@ var KTInputmask = {
 
         $(".phone_international").each(function(i) {
             var id = $(this).attr("id");
-            var currentMask = $("#" + id).attr('placeholder').replace(/[0-9+]/ig, '9');
-            $("#" + id).inputmask({ mask: currentMask, keepStatic: true });
+
+            //Todo a voir dans les autres pays
+            if ($("#" + id).val() != '') {
+                var currentMask = $("#" + id).attr('placeholder').replace(/[0-9+]/ig, '9');
+                $("#" + id).inputmask({ mask: currentMask, keepStatic: true });
+            }
         });
 
     }

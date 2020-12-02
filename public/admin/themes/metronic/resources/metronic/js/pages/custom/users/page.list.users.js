@@ -176,11 +176,12 @@ var KTAppUserListDatatable = function() {
                             sortable: !1,
                             width: 150,
                             template: function(t) {
-                                if (t.active == "1") { var classActive = 'btn-light-success'; } else { var classActive = 'btn-light-danger'; }
-                                if (t.active == "1") { var textActive = _LANG_.active; } else { var textActive = _LANG_.desactive; }
-                                if (t.active == '1') { var idActive = '0'; } else { var idActive = '1'; }
+                                if (t.status == false || t.status == null) { var classActive = 'btn-light-success'; } else { var classActive = 'btn-light-danger'; }
+                                if (t.status == false || t.status == null) { var textActive = _LANG_.active; } else { var textActive = _LANG_.desactive; }
+                                if (t.status == false || t.status == null) { var idActive = 'disabled'; } else { var idActive = ''; }
+                                if (t.status == false || t.status == null) { var idActiveMessage = 'explain_disabled'; } else { var idActiveMessage = ''; }
 
-                                var template = '<a href="javascript:;" data-statut="' + idActive + '" data-id="' + t.uuid + '" class="actionActive btn btn-bold btn-sm btn-font-sm ' + classActive + '">' + textActive + '</a>';
+                                var template = '<a href="javascript:;" data-status_message="' + idActiveMessage + '" data-status="' + idActive + '" data-id="' + t.uuid + '" class="actionActive btn btn-bold btn-sm btn-font-sm ' + classActive + '">' + textActive + '</a>';
                                 return template;
 
                             }
@@ -401,7 +402,8 @@ KTUtil.ready(function() {
     //Update
     $(document).on("click", ".actionActive", function(e) {
         e.preventDefault();
-        var statut = $(this).attr('data-statut');
+        var status = $(this).attr('data-status');
+        var status_message = $(this).attr('data-status_message');
         var uuid = $(this).attr('data-id');
         var value = [];
         $.ajax({
@@ -412,7 +414,8 @@ KTUtil.ready(function() {
                 [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
                 value: [{
                     uuid: uuid,
-                    active: statut
+                    status: status,
+                    status_message: status_message
                 }]
             },
             dataType: "json",
