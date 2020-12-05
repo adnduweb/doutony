@@ -117,7 +117,7 @@ var KTAppLogsTrafficListDatatable = function() {
                         type: "date",
                         format: "MM/DD/YYYY H:i:s",
                         template: function(t) {
-                            return '<div class="font-weight-bolder text-primary mb-0">' + t.date_update_format + '</div>';
+                            return '<div class="font-weight-bolder text-primary mb-0">' + t.date_create_format_full + '</div>';
                         }
                     }
 

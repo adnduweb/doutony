@@ -315,7 +315,9 @@ $(document).on("click", ".updateCurrencyRate", function(e) {
         type: 'POST',
         url: current_url + "/updateCurrencyrate",
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-        data: {},
+        data: {
+            [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content')
+        },
         dataType: "json",
         success: function(result, status, xhr) {
             //$(this).removeClass('.kt-spinner.kt-spinner--center kt-spinner--sm kt-spinner--light');

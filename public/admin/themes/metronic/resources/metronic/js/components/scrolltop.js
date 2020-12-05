@@ -109,7 +109,7 @@ var KTScrolltop = function(elementId, options) {
                             return event.handler.call(this, the, args);
                         }
                     } else {
-                       return event.handler.call(this, the, args);
+                        return event.handler.call(this, the, args);
                     }
                 }
             }

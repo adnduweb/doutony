@@ -166,6 +166,65 @@ jQuery(document).ready(function() {
     KTKBootstrapTouchspin.init()
 });
 
+/********************************************
+ * Internationalization phone
+ *******************************************/
+
+$(".phone_international").each(function(i) {
+    var id = $(this).attr('id');
+    var input_phone = document.querySelector("#" + id),
+        errorMsgPhoneFixe = document.querySelector(".invalid-feedback-" + id);
+    //intlTelInput(input_mobile);
+
+    // here, the index maps to the error code returned from getValidationError - see readme
+    var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+    // initialise plugin
+    var iti_phoneFixe = intlTelInput(input_phone, {
+        initialCountry: "auto",
+        allowDropdown: true,
+        geoIpLookup: function(callback) {
+            $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+                var countryCode = (resp && resp.country) ? resp.country : "";
+                callback(countryCode);
+            });
+        },
+        hiddenInput: "full_" + id,
+        utilsScript: utils
+    });
+
+    var resetPhoneFixe = function() {
+        input_phone.classList.remove("error");
+        errorMsgPhoneFixe.innerHTML = "";
+        errorMsgPhoneFixe.classList.add("hide");
+        //validMsg.classList.add("hide");
+    };
+
+    // on blur: validate
+    input_phone.addEventListener('blur', function() {
+        resetPhoneFixe();
+        if (input_phone.value.trim()) {
+            if (!iti_phoneFixe.isValidNumber()) {
+                input_phone.classList.add("error");
+                var errorCode = iti_phoneFixe.getValidationError();
+                errorMsgPhoneFixe.innerHTML = errorMap[errorCode];
+                errorMsgPhoneFixe.classList.remove("hide");
+            }
+        }
+    });
+    input_phone.addEventListener("countrychange", function(e, countryData) {
+        //var currentMask = e.currentTarget.placeholder;
+        var currentMask = $(this).attr('placeholder').replace(/[0-9+]/ig, '9');
+        $(this).attr('placeholder', currentMask);
+
+        $(input_phone).inputmask({ mask: currentMask, keepStatic: true });
+    });
+    input_phone.addEventListener('change', resetPhoneFixe);
+    input_phone.addEventListener('keyup', resetPhoneFixe);
+
+});
+
+
 var KTInputmask = {
     init: function() {
         $(".currency").inputmask("9.999999", {
@@ -350,6 +409,27 @@ function callAjax() {
         }
     });
 }
+
+jQuery(document).ready(function() {
+
+    let selectedTab = window.location.hash;
+
+    if (selectedTab) {
+
+        $('.nav-link[href="' + window.location.href + '"]').trigger('click').addClass('active');
+        $('.tab-pane').removeClass('active');
+        $(selectedTab).tab('show');
+    }
+
+    $(document).on("click", '.nav-tabs a', function(e) {
+
+        $('.tab-pane').removeClass('active');
+        var href = $(this).attr('href');
+        var hash = this.hash;
+        $(hash).tab('show');
+
+    });
+});
 
 /***************************
  * Enregistrer les settings du User

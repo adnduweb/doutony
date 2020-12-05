@@ -31,8 +31,8 @@ mix
 // 3rd party plugins css/js
 mix.sass('./resources/plugins/plugins.scss', './assets/plugins/global/plugins.bundle.css').then(() => {
         // remove unused preprocessed fonts folder
-        rimraf(path.resolve('./fonts'), () => {});
-        //rimraf(path.resolve('./images'), () => {});
+        rimraf(path.resolve('./assets/fonts'), () => {});
+        rimraf(path.resolve('./assets/images'), () => {});
     }).sourceMaps(!mix.inProduction())
     // .setResourceRoot('./')
     .options({ processCssUrls: false }).js(['./resources/plugins/plugins.js'], './assets/plugins/global/plugins.bundle.js');

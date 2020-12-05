@@ -109,7 +109,7 @@ var KTLogin = function() {
                     text: "Sorry, looks like there are some errors detected, please try again tttttt.",
                     icon: "error",
                     buttonsStyling: false,
-                    confirmButtonText: "Ok, got it!",
+                    confirmButtonText: _LANG_.close,
                     customClass: {
                         confirmButton: "btn font-weight-bold btn-light-primary"
                     }
@@ -215,7 +215,7 @@ var KTLogin = function() {
                     text: _LANG_.sorry_looks_like_errors_detected,
                     icon: "error",
                     buttonsStyling: false,
-                    confirmButtonText: "Ok, got it!",
+                    confirmButtonText: _LANG_.close,
                     customClass: {
                         confirmButton: "btn font-weight-bold btn-light-primary"
                     }
@@ -234,6 +234,13 @@ var KTLogin = function() {
             return;
         }
 
+        const passwordMeter = document.getElementById('passwordMeter');
+        const passwordMeter2 = document.getElementById('passwordMeter2');
+
+        const randomNumber = function(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        };
+
         FormValidation
             .formValidation(
                 form, {
@@ -247,6 +254,26 @@ var KTLogin = function() {
                                     message: _LANG_.the_value_is_not_address_valid
                                 }
                             }
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'le champs est requis'
+                                }
+                            }
+                        },
+                        pass_confirm: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'le champs est requis'
+                                },
+                                identical: {
+                                    compare: function() {
+                                        return form.querySelector('[name="password"]').value;
+                                    },
+                                    message: 'Le mot de passe et la confirmation ne sont pas les mêmes',
+                                }
+                            }
                         }
                     },
                     plugins: {
@@ -256,7 +283,40 @@ var KTLogin = function() {
                         bootstrap: new FormValidation.plugins.Bootstrap({
                             //	eleInvalidClass: '', // Repace with uncomment to hide bootstrap validation icons
                             //	eleValidClass: '',   // Repace with uncomment to hide bootstrap validation icons
-                        })
+                        }),
+                        tpasswordStrength: new FormValidation.plugins.PasswordStrength({
+                            field: 'password',
+                            message: 'Le mot de passe est très falble',
+                            minimalScore: 3,
+                            onValidated: function(valid, message, score) {
+                                console.log(score);
+                                console.log(message);
+                                switch (score) {
+                                    case 0:
+                                        passwordMeter.style.width = randomNumber(1, 20) + '%';
+                                        passwordMeter.style.backgroundColor = '#ff4136';
+                                    case 1:
+                                        passwordMeter.style.width = randomNumber(20, 40) + '%';
+                                        passwordMeter.style.backgroundColor = '#ff4136';
+                                        break;
+                                    case 2:
+                                        passwordMeter.style.width = randomNumber(40, 60) + '%';
+                                        passwordMeter.style.backgroundColor = '#ff4136';
+                                        message: 'bon';
+                                        break;
+                                    case 3:
+                                        passwordMeter.style.width = randomNumber(60, 80) + '%';
+                                        passwordMeter.style.backgroundColor = '#ffb700';
+                                        break;
+                                    case 4:
+                                        passwordMeter.style.width = '100%';
+                                        passwordMeter.style.backgroundColor = '#19a974';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            },
+                        }),
                     }
                 }
             )
@@ -305,7 +365,7 @@ var KTLogin = function() {
                         });
                     } else {
                         Swal.fire({
-                            html: response.message,
+                            text: _LANG_.sorry_looks_like_errors_detected,
                             icon: "error",
                             buttonsStyling: false,
                             confirmButtonText: _LANG_.close,
@@ -324,7 +384,7 @@ var KTLogin = function() {
                     text: _LANG_.sorry_looks_like_errors_detected,
                     icon: "error",
                     buttonsStyling: false,
-                    confirmButtonText: "Ok, got it!",
+                    confirmButtonText: _LANG_.close,
                     customClass: {
                         confirmButton: "btn font-weight-bold btn-light-primary"
                     }
@@ -454,7 +514,7 @@ var KTLogin = function() {
     //                     text: "Sorry, looks like there are some errors detected, please try again kkkkkk.",
     //                     icon: "error",
     //                     buttonsStyling: false,
-    //                     confirmButtonText: "Ok, got it!",
+    //                     confirmButtonText: _LANG_.close,
     //                     customClass: {
     //                         confirmButton: "btn font-weight-bold btn-light-primary"
     //                     }
@@ -487,4 +547,17 @@ var KTLogin = function() {
 // Class Initialization
 jQuery(document).ready(function() {
     KTLogin.init();
+
+    $('.show-password').click(function() {
+        if ($(this).prev('input').prop('type') == 'password') {
+            //Si c'est un input type password
+            $(this).prev('input').prop('type', 'text');
+            $(this).html('<i class="far fa-eye-slash"></i>');
+        } else {
+            //Sinon
+            $(this).prev('input').prop('type', 'password');
+            $(this).html('<i class="far fa-eye"></i>');
+        }
+    });
+
 });

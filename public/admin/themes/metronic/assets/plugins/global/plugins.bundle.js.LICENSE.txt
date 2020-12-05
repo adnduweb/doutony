@@ -1,57 +1,4 @@
 /*!
-					"shortcut"			: 113,
-					"shortcut_label"	: 'F2',
-					"icon"				: "glyphicon glyphicon-leaf",
-					*/
-
-/*!
-					'themes' : {
-						'name' : this.get_theme(),
-						'icons' : this._data.core.themes.icons,
-						'dots' : this._data.core.themes.dots
-					},
-					*/
-
-/*!
-				.on("mousedown.jstree touchstart.jstree", ".jstree-wholerow", function (e) {
-						if(e.target === e.currentTarget) {
-							var a = $(e.currentTarget).closest(".jstree-node").children(".jstree-anchor");
-							e.target = a[0];
-							a.trigger(e);
-						}
-					})
-				*/
-
-/*!
-			if(!('oncontextmenu' in document.body) && ('ontouchstart' in document.body)) {
-				var el = null, tm = null;
-				this.element
-					.on("touchstart", ".jstree-anchor", function (e) {
-						el = e.currentTarget;
-						tm = +new Date();
-						$(document).one("touchend", function (e) {
-							e.target = document.elementFromPoint(e.originalEvent.targetTouches[0].pageX - window.pageXOffset, e.originalEvent.targetTouches[0].pageY - window.pageYOffset);
-							e.currentTarget = e.target;
-							tm = ((+(new Date())) - tm);
-							if(e.target === el && tm > 600 && tm < 1000) {
-								e.preventDefault();
-								$(el).trigger('contextmenu', e);
-							}
-							el = null;
-							tm = null;
-						});
-					});
-			}
-			*/
-
-/*!
-			oi = obj.children("i:visible"),
-			ai = a.children("i:visible"),
-			w1 = oi.width() * oi.length,
-			w2 = ai.width() * ai.length,
-			*/
-
-/*!
 	autosize 4.0.2
 	license: MIT
 	http://www.jacklmoore.com/autosize
@@ -77,7 +24,7 @@
  */
 
 /*!
- * ApexCharts v3.20.0
+ * ApexCharts v3.22.0
  * (c) 2018-2020 Juned Chhipa
  * Released under the MIT License.
  */
@@ -103,14 +50,14 @@
  */
 
 /*!
- * Sizzle CSS Selector Engine v2.3.4
+ * Sizzle CSS Selector Engine v2.3.5
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2019-04-08
+ * Date: 2020-03-14
  */
 
 /*!
@@ -149,12 +96,7 @@
  */
 
 /*!
- * if using jslint please allow for the jQuery global and use following options:
- * jslint: loopfunc: true, browser: true, ass: true, bitwise: true, continue: true, nomen: true, plusplus: true, regexp: true, unparam: true, todo: true, white: true
- */
-
-/*!
- * jQuery JavaScript Library v3.4.1
+ * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -164,7 +106,7 @@
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2019-05-01T21:04Z
+ * Date: 2020-05-04T22:49Z
  */
 
 /*!
@@ -187,16 +129,6 @@
  * http://www.gnu.org/licenses/gpl.html
  *
  * Thanks to Amir-Hossein Sobhi for some excellent contributions!
- */
-
-/*!
- * jsTree 3.3.10
- * http://jstree.com/
- *
- * Copyright (c) 2014 Ivan Bozhanov (http://vakata.com)
- *
- * Licensed same as jquery - under the terms of the MIT License
- *   http://www.opensource.org/licenses/mit-license.php
  */
 
 /*!
@@ -277,7 +209,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 /*! Idle Timer v1.1.0 2016-03-21 | https://github.com/thorst/jquery-idletimer | (c) 2016 Paul Irish | Licensed MIT */
 
-/*! nouislider - 14.6.1 - 8/17/2020 */
+/*! nouislider - 14.6.2 - 9/16/2020 */
 
 /*! svg.draggable.js - v2.2.2 - 2019-01-08
   * https://github.com/svgdotjs/svg.draggable.js
@@ -323,9 +255,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 /**!
 
  @license
- handlebars v4.1.0
+ handlebars v4.7.6
 
-Copyright (C) 2011-2017 by Yehuda Katz
+Copyright (C) 2011-2019 by Yehuda Katz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -379,7 +311,5 @@ THE SOFTWARE.
  */
 
 //! moment.js
-
-//! moment.js language configuration
 
 //! moment.js locale configuration

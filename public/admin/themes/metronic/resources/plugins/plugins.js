@@ -46,12 +46,18 @@ window.ApexCharts = require('apexcharts/dist/apexcharts.min.js');
 // FormValidation - Best premium validation library for JavaScript. Zero dependencies. Learn more: https://formvalidation.io/
 window.FormValidation = require("../metronic/plugins/formvalidation/dist/amd/index.js");
 window.FormValidation.plugins.Bootstrap = require("../metronic/plugins/formvalidation/dist/amd/plugins/Bootstrap.js").default;
+window.FormValidation.plugins.PasswordStrength = require("../metronic/plugins/formvalidation/dist/js/plugins/PasswordStrength.js");
+
 
 // jQuery BlockUI - The jQuery BlockUI Plugin lets you simulate synchronous behavior when using AJAX: http://malsup.com/jquery/block/
 require('block-ui/jquery.blockUI.js');
 
-//Tempus Dominus - The Tempus Dominus provides a flexible datetimepicker widget in the Bootstrap style: https://tempusdominus.github.io/bootstrap-4/
-require('tempusdominus-bootstrap-4');
+// Tempus Dominus - The Tempus Dominus provides a flexible datetimepicker widget in the Bootstrap style: https://tempusdominus.github.io/bootstrap-4/
+require('tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4');
+require('../metronic/js/vendors/plugins/tempusdominus-bootstrap-4.init.js');
+
+// JQuery Mask Plugin - is a jQuery plugin which create an input mask. An input mask helps the user with the input by ensuring a predefined format: https://igorescobar.github.io/jQuery-Mask-Plugin/
+require('jquery-mask-plugin');
 
 // Bootstrap Datepicker - Bootstrap-datepicker provides a flexible datepicker widget in the Bootstrap style: https://bootstrap-datepicker.readthedocs.io/en/latest/
 require('bootstrap-datepicker/dist/js/bootstrap-datepicker.js');
@@ -91,9 +97,9 @@ window.Bloodhound = require('typeahead.js/dist/typeahead.bundle.js');
 window.Handlebars = require('handlebars/dist/handlebars.js');
 
 // Inputmask - is a javascript library which creates an input mask: https://github.com/RobinHerbots/Inputmask
-require('inputmask/dist/jquery.inputmask.bundle.js');
-require('inputmask/dist/inputmask/inputmask.date.extensions.js');
-require('inputmask/dist/inputmask/inputmask.numeric.extensions.js');
+require('inputmask/dist/jquery.inputmask.js');
+require('inputmask/lib/extensions/inputmask.date.extensions.js');
+require('inputmask/lib/extensions/inputmask.numeric.extensions.js');
 
 // noUiSlider - is a lightweight range slider with multi-touch support and a ton of features. It supports non-linear ranges, requires no external dependencies: https://refreshless.com/nouislider/
 window.noUiSlider = require('nouislider/distribute/nouislider.js');
@@ -159,3 +165,6 @@ require('../metronic/js/vendors/plugins/sweetalert2.init.js');
 
 // JQuery Repeater - Create a repeatable group of input elements: https://github.com/DubFriend/jquery.repeater
 require('jquery.repeater');
+
+// jsTree - is jquery plugin, that provides interactive trees: https://www.jstree.com/
+require('jstree');

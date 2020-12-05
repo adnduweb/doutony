@@ -32,8 +32,9 @@ $rouge: #f64e60;
 }
 
 .symbol-label.symbol-text {
-    font-size: 44px;
+    font-size: 44px !important;
     letter-spacing: -5px;
+    text-transform: uppercase;
 }
 
 .form-group.row.kt-shape-bg-color-1 {
@@ -843,6 +844,10 @@ a.brand-logo {
 body {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+}
+
+body.controller_authentication {
+    padding: 0px;
 }
 
 .header {
@@ -2469,4 +2474,28 @@ body {
 
 .controller_users .timeline.timeline-6:before {
     left: 110.5px;
+}
+
+.iti__country-list {
+    z-index: 3;
+}
+
+.show-password {
+    font-size: 9px;
+    // text-transform: uppercase;
+    // position: absolute;
+    // cursor: pointer;
+    // margin-left: -48px;
+    // top: 0px;
+    // right: -48px;
+    // height: 39px;
+    // border-radius: 0px;
+}
+
+.show-password i {
+    font-size: 14px;
+}
+
+.password-strength {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }

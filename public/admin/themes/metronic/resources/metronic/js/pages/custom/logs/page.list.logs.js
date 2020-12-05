@@ -48,6 +48,20 @@ var KTAppUserListDatatable = function() {
                     footer: !1
                 },
                 sortable: !0,
+                // toolbar
+                toolbar: {
+                    // toolbar placement can be at top or bottom or both top and bottom repeated
+                    placement: ['bottom', 'top'],
+
+                    // toolbar items
+                    items: {
+                        // pagination
+                        pagination: {
+                            // page size select
+                            pageSizeSelect: [5, 10, 20, 30, 50, 100, 500, 1000], // display dropdown to select pagination size. -1 is used for "ALl" option
+                        },
+                    },
+                },
                 pagination: !0,
                 search: {
                     input: $("#kt_subheader_search_form"),
@@ -73,22 +87,23 @@ var KTAppUserListDatatable = function() {
                     {
                         field: "source",
                         title: _LANG_.source,
-                        width: 200,
+                        width: 60,
                         template: function(t) {
                             return '<div class="capitalize text-dark-75 font-weight-bolder font-size-lg mb-0">' + t.source + '</div>';
                         }
 
                     }, {
                         field: "source_id",
-                        title: _LANG_.source_id,
+                        title: _LANG_.id,
                         type: "source_id",
                         //sortable: !1,
-                        //width: 100,
+                        width: 20,
 
                     }, {
                         field: "user_id",
-                        title: _LANG_.user_id,
+                        title: _LANG_.user,
                         type: "user_id",
+                        width: 100,
                         //sortable: !1,
                         template: function(t) {
                                 return '<div class="capitalize text-dark-75 font-weight-bolder font-size-lg mb-0">' + t.username + '</div>';
@@ -99,6 +114,7 @@ var KTAppUserListDatatable = function() {
                         field: "event",
                         title: _LANG_.event,
                         type: "event",
+                        width: 80,
                         template: function(t) {
                                 return '<div class=" capitalize font-weight-bold text-primary font-size-lg mb-0">' + t.event + '</div>';
                             }
@@ -108,7 +124,24 @@ var KTAppUserListDatatable = function() {
                         field: "summary",
                         title: _LANG_.summary,
                         type: "summary",
-                        //width: 100,
+                        width: 80,
+
+                    }, {
+                        field: "data",
+                        title: _LANG_.details,
+                        type: "data",
+                        // overflow: "hidden",
+                        // autoHide: true,
+                        width: 400,
+                        template: function(t) {
+                            var template = '<div class=" capitalize font-weight-bold font-size-md mb-0">';
+                            $.each(t.data, function(key, value) {
+                                template += '<div><span class="font-weight-bolder font-size-md mb-0"><strong>' + key + ' </strong></span> : ' + value + '</div>';
+                            });
+
+                            template += '</div>';
+                            return template;
+                        }
 
                     }, {
                         field: "created_at",
