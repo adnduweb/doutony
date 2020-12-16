@@ -128,3 +128,5 @@ nb-configuration.xml
 app/modules/*
 public/admin/themes/metronic/node_modules/*
 app/Language/*
+public/uploads/*
+!public/uploads/index.html

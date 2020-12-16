@@ -169,60 +169,62 @@ jQuery(document).ready(function() {
 /********************************************
  * Internationalization phone
  *******************************************/
+if ($('div.phone_international').length) {
+    console.log('dfgdfgdfgdf');
+    $(".phone_international").each(function(i) {
+        var id = $(this).attr('id');
+        var input_phone = document.querySelector("#" + id),
+            errorMsgPhoneFixe = document.querySelector(".invalid-feedback-" + id);
+        //intlTelInput(input_mobile);
 
-$(".phone_international").each(function(i) {
-    var id = $(this).attr('id');
-    var input_phone = document.querySelector("#" + id),
-        errorMsgPhoneFixe = document.querySelector(".invalid-feedback-" + id);
-    //intlTelInput(input_mobile);
+        // here, the index maps to the error code returned from getValidationError - see readme
+        var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
 
-    // here, the index maps to the error code returned from getValidationError - see readme
-    var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+        // initialise plugin
+        var iti_phoneFixe = intlTelInput(input_phone, {
+            initialCountry: "auto",
+            allowDropdown: true,
+            geoIpLookup: function(callback) {
+                $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "";
+                    callback(countryCode);
+                });
+            },
+            hiddenInput: "full_" + id,
+            utilsScript: utils
+        });
 
-    // initialise plugin
-    var iti_phoneFixe = intlTelInput(input_phone, {
-        initialCountry: "auto",
-        allowDropdown: true,
-        geoIpLookup: function(callback) {
-            $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
-                var countryCode = (resp && resp.country) ? resp.country : "";
-                callback(countryCode);
-            });
-        },
-        hiddenInput: "full_" + id,
-        utilsScript: utils
-    });
+        var resetPhoneFixe = function() {
+            input_phone.classList.remove("error");
+            errorMsgPhoneFixe.innerHTML = "";
+            errorMsgPhoneFixe.classList.add("hide");
+            //validMsg.classList.add("hide");
+        };
 
-    var resetPhoneFixe = function() {
-        input_phone.classList.remove("error");
-        errorMsgPhoneFixe.innerHTML = "";
-        errorMsgPhoneFixe.classList.add("hide");
-        //validMsg.classList.add("hide");
-    };
-
-    // on blur: validate
-    input_phone.addEventListener('blur', function() {
-        resetPhoneFixe();
-        if (input_phone.value.trim()) {
-            if (!iti_phoneFixe.isValidNumber()) {
-                input_phone.classList.add("error");
-                var errorCode = iti_phoneFixe.getValidationError();
-                errorMsgPhoneFixe.innerHTML = errorMap[errorCode];
-                errorMsgPhoneFixe.classList.remove("hide");
+        // on blur: validate
+        input_phone.addEventListener('blur', function() {
+            resetPhoneFixe();
+            if (input_phone.value.trim()) {
+                if (!iti_phoneFixe.isValidNumber()) {
+                    input_phone.classList.add("error");
+                    var errorCode = iti_phoneFixe.getValidationError();
+                    errorMsgPhoneFixe.innerHTML = errorMap[errorCode];
+                    errorMsgPhoneFixe.classList.remove("hide");
+                }
             }
-        }
-    });
-    input_phone.addEventListener("countrychange", function(e, countryData) {
-        //var currentMask = e.currentTarget.placeholder;
-        var currentMask = $(this).attr('placeholder').replace(/[0-9+]/ig, '9');
-        $(this).attr('placeholder', currentMask);
+        });
+        input_phone.addEventListener("countrychange", function(e, countryData) {
+            //var currentMask = e.currentTarget.placeholder;
+            var currentMask = $(this).attr('placeholder').replace(/[0-9+]/ig, '9');
+            $(this).attr('placeholder', currentMask);
 
-        $(input_phone).inputmask({ mask: currentMask, keepStatic: true });
-    });
-    input_phone.addEventListener('change', resetPhoneFixe);
-    input_phone.addEventListener('keyup', resetPhoneFixe);
+            $(input_phone).inputmask({ mask: currentMask, keepStatic: true });
+        });
+        input_phone.addEventListener('change', resetPhoneFixe);
+        input_phone.addEventListener('keyup', resetPhoneFixe);
 
-});
+    });
+}
 
 
 var KTInputmask = {
@@ -231,16 +233,17 @@ var KTInputmask = {
             placeholder: "1.000000",
             autoUnmask: !0
         });
+        if ($('div.phone_international').length) {
+            $(".phone_international").each(function(i) {
+                var id = $(this).attr("id");
 
-        $(".phone_international").each(function(i) {
-            var id = $(this).attr("id");
-
-            //Todo a voir dans les autres pays
-            if ($("#" + id).val() != '') {
-                var currentMask = $("#" + id).attr('placeholder').replace(/[0-9+]/ig, '9');
-                $("#" + id).inputmask({ mask: currentMask, keepStatic: true });
-            }
-        });
+                //Todo a voir dans les autres pays
+                if ($("#" + id).val() != '') {
+                    var currentMask = $("#" + id).attr('placeholder').replace(/[0-9+]/ig, '9');
+                    $("#" + id).inputmask({ mask: currentMask, keepStatic: true });
+                }
+            });
+        }
 
     }
 };
@@ -569,10 +572,10 @@ function initTabLangs() {
 
 function afficheLang(lang) {
     // mettre l'onglet à active
-    $(tab_langs).find($(tab_lang)).removeClass("active");
+    $(tab_langs).find($(tab_lang)).removeClass("active btn-success").addClass("btn-primary");
     $(tab_langs).find($(tab_lang)).each(function() {
         if ($(this).data("lang") == lang)
-            $(this).addClass("active");
+            $(this).addClass("active btn-success");
     });
     // afficher les bons champs
     $(lang_fields).find("input.lang,textarea.lang, .textarea.lang").each(function() {

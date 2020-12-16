@@ -139,6 +139,7 @@
     "/assets/js/pages/custom/logs/page.list.connexions.js": "/assets/js/pages/custom/logs/page.list.connexions.js",
     "/assets/js/pages/custom/logs/page.list.logs.js": "/assets/js/pages/custom/logs/page.list.logs.js",
     "/assets/js/pages/custom/logs/page.list.traffics.js": "/assets/js/pages/custom/logs/page.list.traffics.js",
+    "/assets/js/pages/custom/medias/imageManager.js": "/assets/js/pages/custom/medias/imageManager.js",
     "/assets/js/pages/custom/permissions/page.list.permissions.js": "/assets/js/pages/custom/permissions/page.list.permissions.js",
     "/assets/js/pages/custom/profile/profile.js": "/assets/js/pages/custom/profile/profile.js",
     "/assets/js/pages/custom/projects/add-project.js": "/assets/js/pages/custom/projects/add-project.js",

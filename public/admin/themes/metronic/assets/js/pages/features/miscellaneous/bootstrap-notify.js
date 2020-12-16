@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 156);
+/******/ 	return __webpack_require__(__webpack_require__.s = 157);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTBootstrapNotifyDemo = function () {\n  // Pr
 
 /***/ }),
 
-/***/ 156:
+/***/ 157:
 /*!**************************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/miscellaneous/bootstrap-notify.js ***!
   \**************************************************************************************/

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9087a3d88fd52f3528728afb65e9e164",
+    "content-hash": "389ae4ab91b985d2cd0c1697c48118f6",
     "packages": [
         {
             "name": "adnduweb/ci4_admin",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/adnduweb/ci4_admin.git",
-                "reference": "0806ad29681b2c5eabb1a2823bcff44ef6d26a0e"
+                "reference": "a6f4e1305ddb8be9cb2b4c6fd145974e0eee59b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adnduweb/ci4_admin/zipball/0806ad29681b2c5eabb1a2823bcff44ef6d26a0e",
-                "reference": "0806ad29681b2c5eabb1a2823bcff44ef6d26a0e",
+                "url": "https://api.github.com/repos/adnduweb/ci4_admin/zipball/a6f4e1305ddb8be9cb2b4c6fd145974e0eee59b8",
+                "reference": "a6f4e1305ddb8be9cb2b4c6fd145974e0eee59b8",
                 "shasum": ""
             },
             "require": {
@@ -39,7 +39,7 @@
                 "issues": "https://github.com/adnduweb/ci4_admin/issues",
                 "source": "https://github.com/adnduweb/ci4_admin/tree/main"
             },
-            "time": "2020-11-30T12:17:30+00:00"
+            "time": "2020-12-05T18:06:10+00:00"
         },
         {
             "name": "adnduweb/ci4_core",
@@ -47,16 +47,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/adnduweb/ci4_core.git",
-                "reference": "0f720fd9cbd4d0e271bfbe731b8663857cb513e5"
+                "reference": "b8826080a43efcd1fb3a1ce1c82df72c0675034f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adnduweb/ci4_core/zipball/0f720fd9cbd4d0e271bfbe731b8663857cb513e5",
-                "reference": "0f720fd9cbd4d0e271bfbe731b8663857cb513e5",
+                "url": "https://api.github.com/repos/adnduweb/ci4_core/zipball/b8826080a43efcd1fb3a1ce1c82df72c0675034f",
+                "reference": "b8826080a43efcd1fb3a1ce1c82df72c0675034f",
                 "shasum": ""
             },
             "require": {
                 "adnduweb/ci4_admin": "*",
+                "erusev/parsedown": "^1.7",
                 "fakerphp/faker": "^1.10",
                 "filp/whoops": "^2.9",
                 "firebase/php-jwt": "^5.2",
@@ -84,7 +85,42 @@
                 "issues": "https://github.com/adnduweb/ci4_core/issues",
                 "source": "https://github.com/adnduweb/ci4_core/tree/main"
             },
-            "time": "2020-11-30T12:17:49+00:00"
+            "time": "2020-12-05T19:13:45+00:00"
+        },
+        {
+            "name": "adnduweb/ci4_media",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adnduweb/ci4_media.git",
+                "reference": "3c21864e2a9f9fc0d880f6abb4dcf1691c3783f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adnduweb/ci4_media/zipball/3c21864e2a9f9fc0d880f6abb4dcf1691c3783f8",
+                "reference": "3c21864e2a9f9fc0d880f6abb4dcf1691c3783f8",
+                "shasum": ""
+            },
+            "require": {
+                "adnduweb/ci4_core": "*"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Adnduweb\\Ci4Media\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An Example of CodeIgniter 4 Media module",
+            "support": {
+                "issues": "https://github.com/adnduweb/ci4_media/issues",
+                "source": "https://github.com/adnduweb/ci4_media/tree/main"
+            },
+            "time": "2020-12-05T19:52:08+00:00"
         },
         {
             "name": "brick/math",
@@ -148,12 +184,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeigniter4/CodeIgniter4.git",
-                "reference": "0d62b8a141d5ed20ccf238b4f261b8ff48fb80e4"
+                "reference": "a2de1f6f966fb1e7f62f1038f517244a8460ab04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeigniter4/CodeIgniter4/zipball/0d62b8a141d5ed20ccf238b4f261b8ff48fb80e4",
-                "reference": "0d62b8a141d5ed20ccf238b4f261b8ff48fb80e4",
+                "url": "https://api.github.com/repos/codeigniter4/CodeIgniter4/zipball/a2de1f6f966fb1e7f62f1038f517244a8460ab04",
+                "reference": "a2de1f6f966fb1e7f62f1038f517244a8460ab04",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +199,7 @@
                 "ext-mbstring": "*",
                 "kint-php/kint": "^3.3",
                 "laminas/laminas-escaper": "^2.6",
-                "php": ">=7.2",
+                "php": "^7.2 || ^8.0",
                 "psr/log": "^1.1"
             },
             "require-dev": {
@@ -211,7 +247,7 @@
                 "slack": "https://codeigniterchat.slack.com",
                 "issues": "https://github.com/codeigniter4/CodeIgniter4/issues"
             },
-            "time": "2020-12-01T02:52:54+00:00"
+            "time": "2020-12-08T11:58:52+00:00"
         },
         {
             "name": "codeigniter4/translations",
@@ -478,16 +514,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.12.13",
+            "version": "8.12.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "571bbbabdab5b1cf16550cb257005bb527fa0899"
+                "reference": "c42a963110b08b8a4a419c35566bf9d3456ba479"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/571bbbabdab5b1cf16550cb257005bb527fa0899",
-                "reference": "571bbbabdab5b1cf16550cb257005bb527fa0899",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/c42a963110b08b8a4a419c35566bf9d3456ba479",
+                "reference": "c42a963110b08b8a4a419c35566bf9d3456ba479",
                 "shasum": ""
             },
             "require": {
@@ -501,8 +537,8 @@
                 "pear/versioncontrol_git": "^0.5",
                 "phing/phing": "^2.7",
                 "php-coveralls/php-coveralls": "^1.0|^2.0",
-                "phpunit/phpunit": "^4.8.36|^5.0|^7.0",
-                "symfony/console": "^2.8|^3.0"
+                "symfony/console": "^2.8|^3.0",
+                "symfony/phpunit-bridge": "^4.2 || ^5"
             },
             "type": "library",
             "extra": {
@@ -547,7 +583,7 @@
                 "issues": "https://github.com/giggsey/libphonenumber-for-php/issues",
                 "source": "https://github.com/giggsey/libphonenumber-for-php"
             },
-            "time": "2020-11-12T14:42:30+00:00"
+            "time": "2020-12-02T10:54:10+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -2146,16 +2182,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "7.0.13",
+            "version": "7.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "ad0dcd7b184e76f7198a1fe07685bfbec3ae911a"
+                "reference": "bb7c9a210c72e4709cdde67f8b7362f672f2225c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ad0dcd7b184e76f7198a1fe07685bfbec3ae911a",
-                "reference": "ad0dcd7b184e76f7198a1fe07685bfbec3ae911a",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/bb7c9a210c72e4709cdde67f8b7362f672f2225c",
+                "reference": "bb7c9a210c72e4709cdde67f8b7362f672f2225c",
                 "shasum": ""
             },
             "require": {
@@ -2164,7 +2200,7 @@
                 "php": ">=7.2",
                 "phpunit/php-file-iterator": "^2.0.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^3.1.1",
+                "phpunit/php-token-stream": "^3.1.1 || ^4.0",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
                 "sebastian/environment": "^4.2.2",
                 "sebastian/version": "^2.0.1",
@@ -2207,7 +2243,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/7.0.13"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/7.0.14"
             },
             "funding": [
                 {
@@ -2215,7 +2251,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-30T08:35:22+00:00"
+            "time": "2020-12-02T13:39:03+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2383,29 +2419,29 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "3.1.2",
+            "version": "4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "472b687829041c24b25f475e14c2f38a09edf1c2"
+                "reference": "a853a0e183b9db7eed023d7933a858fa1c8d25a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/472b687829041c24b25f475e14c2f38a09edf1c2",
-                "reference": "472b687829041c24b25f475e14c2f38a09edf1c2",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/a853a0e183b9db7eed023d7933a858fa1c8d25a3",
+                "reference": "a853a0e183b9db7eed023d7933a858fa1c8d25a3",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": ">=7.1"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.0"
+                "phpunit/phpunit": "^9.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -2430,7 +2466,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-token-stream/issues",
-                "source": "https://github.com/sebastianbergmann/php-token-stream/tree/3.1.2"
+                "source": "https://github.com/sebastianbergmann/php-token-stream/tree/master"
             },
             "funding": [
                 {
@@ -2439,7 +2475,7 @@
                 }
             ],
             "abandoned": true,
-            "time": "2020-11-30T08:38:46+00:00"
+            "time": "2020-08-04T08:28:15+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -3376,7 +3412,8 @@
     "stability-flags": {
         "codeigniter4/codeigniter4": 20,
         "codeigniter4/translations": 10,
-        "adnduweb/ci4_core": 20
+        "adnduweb/ci4_core": 20,
+        "adnduweb/ci4_media": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

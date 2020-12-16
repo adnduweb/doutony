@@ -740,8 +740,8 @@ a.brand-logo {
     background-image: linear-gradient(45deg, #c4c4c4 25%, transparent 25%, transparent 75%, #c4c4c4 75%, #c4c4c4), linear-gradient(45deg, #c4c4c4 25%, transparent 25%, transparent 75%, #c4c4c4 75%, #c4c4c4);
     background-position: 0 0, 10px 10px;
     background-size: 20px 20px;
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
 }
 
 #kt_modal_manager_edition .attachment-media-view.application .details-image {
@@ -2499,3 +2499,153 @@ body.controller_authentication {
 .password-strength {
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
+
+.file-item {
+    position: relative;
+}
+
+.file-item .card-toolbar {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#kt_modal_manager_edition .modal-content {
+    height: 100%;
+}
+
+#kt_modal_manager_edition .flexbox-container,
+#kt_modal_manager_edition form,
+#kt_modal_manager_edition .modal-body {
+    height: 100%;
+}
+
+#imageManager .card-img-top.img-thumbnail {
+    border: none;
+    border-radius: 0px;
+}
+
+// #kt_modal_manager .modal-dialog,
+// #imageManager_edition .modal-dialog {
+//     height: 90%;
+// }
+// #kt_modal_manager_edition {
+//     background: #cecece
+// }
+#kt_modal_manager_edition .attachment-media-view {
+    width: 100%;
+    height: 100%;
+}
+
+#kt_modal_manager_edition .thumbnail {
+    box-sizing: border-box;
+    padding: 16px;
+    height: 100%;
+}
+
+#kt_modal_manager_edition.details-image {
+    display: block;
+    margin: 0 auto 16px;
+    max-width: 100%;
+    max-height: 90%;
+    max-height: calc(100% - 42px);
+    background-image: linear-gradient(45deg, #c4c4c4 25%, transparent 25%, transparent 75%, #c4c4c4 75%, #c4c4c4), linear-gradient(45deg, #c4c4c4 25%, transparent 25%, transparent 75%, #c4c4c4 75%, #c4c4c4);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+}
+
+#kt_modal_manager_edition .attachment-details {
+    position: absolute;
+    overflow: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    // box-shadow: inset 0 4px 4px -4px rgba(0, 0, 0, .1);
+}
+
+#kt_modal_manager_edition .flexbox-container-1 {
+    position: relative;
+}
+
+#imageManager .nameFile {
+    position: absolute;
+    background: #ffff;
+    width: 100%;
+    bottom: 0px;
+    padding: 5px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+#imageManager .attachment-preview {
+    position: relative;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, .1), inset 0 0 0 1px rgba(0, 0, 0, .05);
+    background: #eee;
+    cursor: pointer;
+    height: 100%;
+}
+
+#imageManager .attachment-preview.square .thumbnail .centered {
+    width: 90px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+#imageManager .attachment-preview .thumbnail .img-thumbnail {
+    background-color: transparent;
+    padding: 0rem;
+}
+
+#imageManager .attachment-preview {
+    border: 2px solid #fff;
+}
+
+#imageManager .bgi-no-repeat {
+    height: 100%;
+}
+
+// #imageManager .attachment-preview .thumbnail {
+//     overflow: hidden;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     opacity: 1;
+//     transition: opacity .1s;
+// }
+// #imageManager .attachment-preview .thumbnail .centered {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     transform: translate(50%, 50%);
+// }
+// #imageManager .attachment-preview .thumbnail img {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     max-height: 100%;
+//     transform: translate(-50%, -50%);
+// }
+// #imageManager .attachment-preview:before {
+//     content: "";
+//     display: block;
+//     padding-top: 100%;
+// }
+// #imageManager .card .bgi-no-repeat {
+//     width: 9.09%;
+// }
+// #imageManager.thumbnail:after {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1);
+//     overflow: hidden;
+// }

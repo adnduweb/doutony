@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 147);
+/******/ 	return __webpack_require__(__webpack_require__.s = 148);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Shared Colors Definition\n\nvar primary = '#6993FF';\nvar success = '#
 
 /***/ }),
 
-/***/ 147:
+/***/ 148:
 /*!*************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/charts/apexcharts.js ***!
   \*************************************************************************/

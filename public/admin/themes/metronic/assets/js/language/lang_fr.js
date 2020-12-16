@@ -145,5 +145,14 @@ var _LANG_ = {
 "password_cannot_be_the_same_as_username" : "The password cannot be the same as username", 
 "password_not_ecal_pass_confirm" : "Le mot de passe et la confirmation ne sont pas les mêmes", 
 "the_password_is_weak" : "Le mot de passe est très faible", 
+"dictDefaultMessage" : "Déposer des fichiers ici pour télécharger", 
+"dictFallbackText" : "Veuillez utiliser le formulaire de secours ci-dessous pour télécharger vos fichiers comme autrefois.", 
+"dictFileTooBig" : "Le fichier est trop gros ({{filesize}} Mio). Taille maximale du fichier: {{maxFilesize}} Mio.", 
+"dictInvalidFileType" : "Vous ne pouvez pas télécharger de fichiers de ce type.", 
+"dictResponseError" : "Le serveur a répondu avec le code {{statusCode}}.", 
+"dictCancelUpload" : "Annuler le téléchargement", 
+"dictCancelUploadConfirmation" : "Voulez-vous vraiment annuler ce téléchargement?", 
+"dictRemoveFile" : "Effacer le fichier", 
+"dictMaxFilesExceeded" : "Vous ne pouvez plus télécharger de fichiers.", 
 
 }

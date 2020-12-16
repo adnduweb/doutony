@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 122);
+/******/ 	return __webpack_require__(__webpack_require__.s = 123);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTProjectsAdd = function () {\n  // Base eleme
 
 /***/ }),
 
-/***/ 122:
+/***/ 123:
 /*!**************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/custom/projects/add-project.js ***!
   \**************************************************************************/

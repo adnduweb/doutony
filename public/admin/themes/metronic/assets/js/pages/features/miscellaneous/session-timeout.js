@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 162);
+/******/ 	return __webpack_require__(__webpack_require__.s = 163);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval("\n\nvar KTSessionTimeoutDemo = function () {\n  var initDemo = function in
 
 /***/ }),
 
-/***/ 162:
+/***/ 163:
 /*!*************************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/miscellaneous/session-timeout.js ***!
   \*************************************************************************************/

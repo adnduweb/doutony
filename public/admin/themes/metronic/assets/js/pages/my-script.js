@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 167);
+/******/ 	return __webpack_require__(__webpack_require__.s = 168);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,7 +97,7 @@ eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset
 
 /***/ }),
 
-/***/ 167:
+/***/ 168:
 /*!********************************************************!*\
   !*** multi ./resources/metronic/js/pages/my-script.js ***!
   \********************************************************/

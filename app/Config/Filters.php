@@ -19,7 +19,7 @@ class Filters extends BaseConfig
 	public $globals = [
 		'before' => [
 			//'honeypot'
-			'csrf' => ['except' => ['/' . CI_AREA_ADMIN, '/login', '/'.CI_AREA_ADMIN.'/international/translate/searchTexte']],
+			'csrf' => ['except' => ['/' . CI_AREA_ADMIN, '/login', '/'.CI_AREA_ADMIN.'/international/translate/searchTexte', '/'.CI_AREA_ADMIN.'/medias/*']],
 		],
 		'after'  => [
 			'toolbar',

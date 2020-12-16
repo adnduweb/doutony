@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 125);
+/******/ 	return __webpack_require__(__webpack_require__.s = 126);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTAppTodo = function () {\n  // Private proper
 
 /***/ }),
 
-/***/ 125:
+/***/ 126:
 /*!***************************************************************!*\
   !*** multi ./resources/metronic/js/pages/custom/todo/todo.js ***!
   \***************************************************************/
