@@ -444,90 +444,18 @@ $(document).on("click", "#kt_aside_toggle", function(e) {
     var id = $(this).attr('data-id');
     $.ajax({
         type: 'POST',
-        url: basePath + segementAdmin + "/sp-admin-ajax",
+        url: baseController + "/ajax/ktAsideUser",
         data: {
-            ajax: true,
-            controller: 'AdminAjaxController',
-            action: 'settingUser',
-            value: {
-                aside: kt_aside
-            },
-            module: false
+            [crsftoken]: $('meta[name="X-CSRF-TOKEN"]').attr('content'),
+            aside: kt_aside
         },
         dataType: "json",
         success: function(result, status, xhr) {
-            if (xhr.status == 200) {
-                $.notify({
-                    title: _LANG_.updated + "!",
-                    message: result.message
-                }, {
-                    type: result.type
-                });
-                $("#kt_apps_product_list_datatable").KTDatatable().reload();
-
-            }
+            //some one ...
         }
     })
 });
 
-/***************************
- * ACTION GENERIQUE 
- **************************/
-
-// $(document).on("click", ".actioncontroller", function(e) {
-
-//     e.preventDefault();
-//     var controller = $(this).data('controller').substr(0, 1).toUpperCase() + $(this).data('controller').substr(1);
-//     var value = $(this).data('value');
-//     var module = $(this).data('module');
-//     $.ajax({
-//         type: 'POST',
-//         url: basePath + segementAdmin + "/sp-admin-ajax", 
-//         data: {
-//             ajax: true,
-//             controller: 'Admin' + controller + 'Controller',
-//             action: $(this).data('action'),
-//             module: module,
-//             value: value,
-//             name_module: $(this).data('namemodule'),
-//         },
-//         dataType: "json",
-//         success: function(response) {
-//             if (response.statut == true) {
-//                 if (response.display == "modal") {
-//                     $('#kt_modal_loading_wrapper').html(response.message);
-//                     $('#kt_modal_loading').modal('show'); //now its working
-//                     KTApp.initTooltips();
-//                 } else {
-//                     if (response.database == "reload") {
-//                         $(".kt-datatable").KTDatatable().reload();
-//                         alert(response.message);
-//                     }
-//                 }
-//                 if (response.retunAjax) {
-//                     $.each(response.retunAjax, function(cle, valeur) {
-//                         $(cle).html(valeur);
-//                     });
-//                 }
-//                 if (response.reload) {
-//                     Swal.fire({
-//                         title: _LANG_.success + "!",
-//                         text: response.message,
-//                         type: "success",
-//                         buttonsStyling: !1,
-//                         confirmButtonText: "OK",
-//                         confirmButtonClass: "btn btn-sm btn-bold btn-dark"
-//                     });
-//                     if (response.reload) {
-//                         setTimeout(function() {
-//                             window.location.reload();
-//                         }, 1000);
-//                     }
-//                 }
-//             }
-//         }
-//     });
-// });
 
 $(document).on("click", ".deleterowKtdatatable", function(e) {
     e.preventDefault();

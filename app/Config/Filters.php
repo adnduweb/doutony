@@ -1,39 +1,68 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
+use CodeIgniter\Filters\CSRF;
+use CodeIgniter\Filters\DebugToolbar;
+use CodeIgniter\Filters\Honeypot;
+use \Adnduweb\Ci4Admin\Filters\LoginFilter;
+use \Adnduweb\Ci4Admin\Filters\RoleFilter;
+use \Adnduweb\Ci4Admin\Filters\PermissionFilter;
 
 class Filters extends BaseConfig
 {
-	// Makes reading things below nicer,
-	// and simpler to change out script that's used.
+	/**
+	 * Configures aliases for Filter classes to
+	 * make reading things nicer and simpler.
+	 *
+	 * @var array
+	 */
 	public $aliases = [
-		'csrf'       => \CodeIgniter\Filters\CSRF::class,
-		'toolbar'    => \CodeIgniter\Filters\DebugToolbar::class,
-		'honeypot'   => \CodeIgniter\Filters\Honeypot::class,
-		'login'      => \Adnduweb\Ci4Admin\Filters\LoginFilter::class,
-		'role'       => \Adnduweb\Ci4Admin\Filters\RoleFilter::class,
-		'permission' => \Adnduweb\Ci4Admin\Filters\PermissionFilter::class,
+		'csrf'       => CSRF::class,
+		'toolbar'    => DebugToolbar::class,
+		'honeypot'   => Honeypot::class,
+		'login'      => LoginFilter::class, // Applicate Route
+		'role'       => RoleFilter::class, // Applicate Route
+		'permission' => PermissionFilter::class, // Applicate Route
 	];
 
-	// Always applied before every request
+	/**
+	 * List of filter aliases that are always
+	 * applied before and after every request.
+	 *
+	 * @var array
+	 */
 	public $globals = [
 		'before' => [
-			//'honeypot'
-			'csrf' => ['except' => ['/' . CI_AREA_ADMIN, '/login', '/'.CI_AREA_ADMIN.'/international/translate/searchTexte', '/'.CI_AREA_ADMIN.'/medias/*']],
+			// 'honeypot',
+			'csrf' => ['except' => [CI_AREA_ADMIN.'/login', '/'.CI_AREA_ADMIN.'/international/translate/searchTexte', '/'.CI_AREA_ADMIN.'/medias/*', '/'.CI_AREA_ADMIN.'/ajax/*']],
 		],
 		'after'  => [
 			'toolbar',
-			//'honeypot'
+			// 'honeypot',
 		],
 	];
 
-	// Works on all of a particular HTTP method
-	// (GET, POST, etc) as BEFORE filters only
-	//     like: 'post' => ['CSRF', 'throttle'],
+	/**
+	 * List of filter aliases that works on a
+	 * particular HTTP method (GET, POST, etc.).
+	 *
+	 * Example:
+	 * 'post' => ['csrf', 'throttle']
+	 *
+	 * @var array
+	 */
 	public $methods = [];
 
-	// List filter aliases and any before/after uri patterns
-	// that they should run on, like:
-	//    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
+	/**
+	 * List of filter aliases that should run on any
+	 * before or after URI patterns.
+	 *
+	 * Example:
+	 * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
+	 *
+	 * @var array
+	 */
 	public $filters = [];
 }

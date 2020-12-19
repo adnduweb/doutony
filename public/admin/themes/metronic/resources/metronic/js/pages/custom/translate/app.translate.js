@@ -17,15 +17,15 @@ jQuery(document).ready(function() {
 });
 
 
-$(document).on("change", ".selectpicker", function(e) {
-    if ($(this).attr('name') == 'lang' && $(".selectpicker.fileTheme option").prop("selected") && $(".selectpicker.fileCore option ").prop("selected")) {
+$(document).on("change", ".selectFilePicker", function(e) {
+    if ($(this).attr('name') == 'lang' && $(".selectFilePicker.fileTheme option").prop("selected") && $(".selectFilePicker.fileCore option ").prop("selected")) {
         return false;
     }
     if ($(this).attr('name') == 'fileCore') {
-        $(".selectpicker.fileTheme option:selected").prop("selected", false);
+        $(".selectFilePicker.fileTheme option:selected").prop("selected", false);
         $('.selectpicker.fileTheme').selectpicker('refresh');
     } else if ($(this).attr('name') == 'fileTheme') {
-        $(".selectpicker.fileCore option:selected").prop("selected", false);
+        $(".selectFilePicker.fileCore option:selected").prop("selected", false);
         $('.selectpicker.fileCore').selectpicker('refresh');
     }
     $("#searchDirect").val("");
@@ -136,7 +136,7 @@ $(document).ready(function() {
 
     }
     $('#searchDirect').keyup(function() {
-        $(".selectpicker.file option:selected").prop("selected", false);
+        $(".selectFilePicker.file option:selected").prop("selected", false);
         $('.selectpicker.file').selectpicker('refresh');
         var search = $(this).val();
         if (search != '') {

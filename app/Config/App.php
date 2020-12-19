@@ -228,41 +228,122 @@ class App extends BaseConfig
 	*/
 	public $proxyIPs = '';
 
-	/*
-	|--------------------------------------------------------------------------
-	| Cross Site Request Forgery
-	|--------------------------------------------------------------------------
-	| Enables a CSRF cookie token to be set. When set to TRUE, token will be
-	| checked on a submitted form. If you are accepting user data, it is strongly
-	| recommended CSRF protection be enabled.
-	|
-	| CSRFTokenName   = The token name
-	| CSRFHeaderName  = The header name
-	| CSRFCookieName  = The cookie name
-	| CSRFExpire      = The number in seconds the token should expire.
-	| CSRFRegenerate  = Regenerate token on every submission
-	| CSRFRedirect    = Redirect to previous page with error on failure
-	*/
-	public $CSRFTokenName  = 'csrf_test_name';
-	public $CSRFHeaderName = 'X-CSRF-TOKEN';
-	public $CSRFCookieName = 'csrf_cookie_name';
-	public $CSRFExpire     = 7200;
-	public $CSRFRegenerate = true;
-	public $CSRFRedirect   = true;
+	/**
+	 * --------------------------------------------------------------------------
+	 * CSRF Token Name
+	 * --------------------------------------------------------------------------
+	 *
+	 * The token name.
+	 *
+	 * @deprecated Use `Config\Security` $tokenName property instead of using this property.
+	 *
+	 * @var string
+	 */
+	public $CSRFTokenName = 'csrf_test_name';
 
-	/*
-	|--------------------------------------------------------------------------
-	| Content Security Policy
-	|--------------------------------------------------------------------------
-	| Enables the Response's Content Secure Policy to restrict the sources that
-	| can be used for images, scripts, CSS files, audio, video, etc. If enabled,
-	| the Response object will populate default values for the policy from the
-	| ContentSecurityPolicy.php file. Controllers can always add to those
-	| restrictions at run time.
-	|
-	| For a better understanding of CSP, see these documents:
-	|   - http://www.html5rocks.com/en/tutorials/security/content-security-policy/
-	|   - http://www.w3.org/TR/CSP/
-	*/
+	/**
+	 * --------------------------------------------------------------------------
+	 * CSRF Header Name
+	 * --------------------------------------------------------------------------
+	 *
+	 * The header name.
+	 *
+	 * @deprecated Use `Config\Security` $headerName property instead of using this property.
+	 *
+	 * @var string
+	 */
+	public $CSRFHeaderName = 'X-CSRF-TOKEN';
+
+	/**
+	 * --------------------------------------------------------------------------
+	 * CSRF Cookie Name
+	 * --------------------------------------------------------------------------
+	 *
+	 * The cookie name.
+	 *
+	 * @deprecated Use `Config\Security` $cookieName property instead of using this property.
+	 *
+	 * @var string
+	 */
+	public $CSRFCookieName = 'csrf_cookie_name';
+
+	/**
+	 * --------------------------------------------------------------------------
+	 * CSRF Expire
+	 * --------------------------------------------------------------------------
+	 *
+	 * The number in seconds the token should expire.
+	 *
+	 * @deprecated Use `Config\Security` $expire property instead of using this property.
+	 *
+	 * @var integer
+	 */
+	public $CSRFExpire = 7200;
+
+	/**
+	 * --------------------------------------------------------------------------
+	 * CSRF Regenerate
+	 * --------------------------------------------------------------------------
+	 *
+	 * Regenerate token on every submission?
+	 *
+	 * @deprecated Use `Config\Security` $regenerate property instead of using this property.
+	 *
+	 * @var boolean
+	 */
+	public $CSRFRegenerate = true;
+
+	/**
+	 * --------------------------------------------------------------------------
+	 * CSRF Redirect
+	 * --------------------------------------------------------------------------
+	 *
+	 * Redirect to previous page with error on failure?
+	 *
+	 * @deprecated Use `Config\Security` $redirect property instead of using this property.
+	 *
+	 * @var boolean
+	 */
+	public $CSRFRedirect = true;
+
+	/**
+	 * --------------------------------------------------------------------------
+	 * CSRF SameSite
+	 * --------------------------------------------------------------------------
+	 *
+	 * Setting for CSRF SameSite cookie token. Allowed values are:
+	 * - None
+	 * - Lax
+	 * - Strict
+	 * - ''
+	 *
+	 * Defaults to `Lax` as recommended in this link:
+	 *
+	 * @see https://portswigger.net/web-security/csrf/samesite-cookies
+	 *
+	 * @deprecated Use `Config\Security` $samesite property instead of using this property.
+	 *
+	 * @var string
+	 */
+	public $CSRFSameSite = 'Lax';
+
+	/**
+	 * --------------------------------------------------------------------------
+	 * Content Security Policy
+	 * --------------------------------------------------------------------------
+	 *
+	 * Enables the Response's Content Secure Policy to restrict the sources that
+	 * can be used for images, scripts, CSS files, audio, video, etc. If enabled,
+	 * the Response object will populate default values for the policy from the
+	 * `ContentSecurityPolicy.php` file. Controllers can always add to those
+	 * restrictions at run time.
+	 *
+	 * For a better understanding of CSP, see these documents:
+	 *
+	 * @see http://www.html5rocks.com/en/tutorials/security/content-security-policy/
+	 * @see http://www.w3.org/TR/CSP/
+	 *
+	 * @var boolean
+	 */
 	public $CSPEnabled = false;
 }

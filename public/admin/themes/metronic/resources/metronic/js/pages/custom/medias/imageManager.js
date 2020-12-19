@@ -9,6 +9,9 @@ Dropzone.prototype.defaultOptions.dictCancelUpload = _LANG_.dictCancelUpload;
 Dropzone.prototype.defaultOptions.dictCancelUploadConfirmation = _LANG_.dictCancelUploadConfirmation;
 Dropzone.prototype.defaultOptions.dictRemoveFile = _LANG_.dictRemoveFile;
 Dropzone.prototype.defaultOptions.dictMaxFilesExceeded = _LANG_.dictMaxFilesExceeded;
+Dropzone.options.dzone = {
+    acceptedFiles: "image/jpeg,image/png,image/gif"
+}
 $(function() {
     var filesDropzone = new Dropzone("#kt_dropzone_media_manager", {
 
@@ -32,6 +35,7 @@ $(function() {
                 };
             }
         },
+        acceptedFiles: "image/jpeg,image/png,image/gif",
         uploadmultiple: true,
         addRemoveLinks: !0,
         timeout: 0,
@@ -93,6 +97,8 @@ $(function() {
             });
 
             this.on("queuecomplete", function(file, res) {
+
+                console.log(filesDropzone);
 
                 if (filesDropzone.files[0].status == Dropzone.SUCCESS) {
 
