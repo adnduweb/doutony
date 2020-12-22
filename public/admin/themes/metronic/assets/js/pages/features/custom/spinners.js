@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 151);
+/******/ 	return __webpack_require__(__webpack_require__.s = 75);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTSpinnersDemo = function () {\n  // Private f
 
 /***/ }),
 
-/***/ 151:
+/***/ 75:
 /*!***********************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/custom/spinners.js ***!
   \***********************************************************************/

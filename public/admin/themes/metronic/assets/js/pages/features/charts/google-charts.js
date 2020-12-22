@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 150);
+/******/ 	return __webpack_require__(__webpack_require__.s = 74);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTGoogleChartsDemo = function () {\n  // Priva
 
 /***/ }),
 
-/***/ 150:
+/***/ 74:
 /*!****************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/charts/google-charts.js ***!
   \****************************************************************************/

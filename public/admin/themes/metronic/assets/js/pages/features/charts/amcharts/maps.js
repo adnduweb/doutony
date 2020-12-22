@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 146);
+/******/ 	return __webpack_require__(__webpack_require__.s = 70);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval(" // Class definition\n\nvar KTamChartsMapsDemo = function () {\n  // Priva
 
 /***/ }),
 
-/***/ 146:
+/***/ 70:
 /*!****************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/charts/amcharts/maps.js ***!
   \****************************************************************************/

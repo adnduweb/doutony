@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 160);
+/******/ 	return __webpack_require__(__webpack_require__.s = 84);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,7 +98,7 @@ eval("\n\nvar KTIdleTimerDemo = function () {\n  var _initDemo1 = function _init
 
 /***/ }),
 
-/***/ 160:
+/***/ 84:
 /*!********************************************************************************!*\
   !*** multi ./resources/metronic/js/pages/features/miscellaneous/idle-timer.js ***!
   \********************************************************************************/
