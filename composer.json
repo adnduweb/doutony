@@ -17,7 +17,8 @@
         "laminas/laminas-escaper": "^2.6",
         "codeigniter4/codeigniter4": "dev-develop",
         "codeigniter4/translations": "@beta",
-        "adnduweb/ci4_core": "dev-main"
+        "adnduweb/ci4_core": "dev-main",
+        "adnduweb/ci4_front": "9999999-dev"
     },
     "require-dev": {
         "mikey179/vfsstream": "^1.6",

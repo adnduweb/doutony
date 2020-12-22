@@ -125,6 +125,7 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
+public/admin/themes/metronic/resources/*
 app/modules/*
 public/admin/themes/metronic/node_modules/*
 app/Language/*
