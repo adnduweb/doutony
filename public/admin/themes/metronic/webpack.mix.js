@@ -15,12 +15,24 @@ const rimraf = require('rimraf');
  |
  */
 
+
+if (!mix.inProduction()) {
+    mix.sourceMaps();
+    mix.webpackConfig({ mode: 'development', devtool: 'inline-source-map' });
+    OutputDir = './development';
+} else {
+    mix.webpackConfig({ mode: 'production', devtool: 'source-map' });
+    OutputDir = './production';
+}
+
 // Default
 mix
-    .js('./resources/js/app.js', './assets/js')
-    .scripts('./resources/js/config.js', './assets/js/config.js')
-    .scripts('./resources/js/jquery-ui.min.js', './assets/js/jquery-ui.min.js')
-    .sass('./resources/sass/app.scss', './assets/css');
+    .js('./resources/js/app.js', OutputDir + '/js')
+    .scripts('./resources/js/config.js', OutputDir + '/js/config.js')
+    .scripts('./resources/js/jquery-ui.min.js', OutputDir + '/js/jquery-ui.min.js')
+    .sass('./resources/sass/app.scss', OutputDir + '/css');
+
+
 
 // Global jquery
 // mix.autoload({
@@ -29,54 +41,54 @@ mix
 // });
 
 // 3rd party plugins css/js
-mix.sass('./resources/plugins/plugins.scss', './assets/plugins/global/plugins.bundle.css').then(() => {
+mix.sass('./resources/plugins/plugins.scss', OutputDir + '/plugins/global/plugins.bundle.css').then(() => {
         // remove unused preprocessed fonts folder
-        rimraf(path.resolve('./assets/fonts'), () => {});
-        rimraf(path.resolve('./assets/images'), () => {});
+        rimraf(path.resolve(OutputDir + '/fonts'), () => {});
+        rimraf(path.resolve(OutputDir + '/images'), () => {});
     }).sourceMaps(!mix.inProduction())
     // .setResourceRoot('./')
-    .options({ processCssUrls: false }).js(['./resources/plugins/plugins.js'], './assets/plugins/global/plugins.bundle.js');
+    .options({ processCssUrls: false }).js(['./resources/plugins/plugins.js'], OutputDir + '/plugins/global/plugins.bundle.js');
 
 // Metronic css/js
-mix.sass('./resources/metronic/sass/style.scss', './assets/css/style.bundle.css', {
+mix.sass('./resources/metronic/sass/style.scss', OutputDir + '/css/style.bundle.css', {
         sassOptions: { includePaths: ['node_modules'] },
     })
     // .options({processCssUrls: false})
-    .js('./resources/js/scripts.js', './assets/js/scripts.bundle.js');
+    .js('./resources/js/scripts.js', OutputDir + '/js/scripts.bundle.js');
 
 // Custom 3rd party plugins
 (glob.sync('./resources/plugins/custom/**/*.js') || []).forEach(file => {
-    mix.js(file, file.replace('./resources/plugins/custom', './assets/plugins/custom').replace('.js', '.bundle.js'));
+    mix.js(file, file.replace('./resources/plugins/custom', OutputDir + '/plugins/custom').replace('.js', '.bundle.js'));
 });
 (glob.sync('./resources/plugins/custom/**/*.scss') || []).forEach(file => {
-    mix.sass(file, file.replace('./resources/plugins/custom', './assets/plugins/custom').replace('.scss', '.bundle.css'));
+    mix.sass(file, file.replace('./resources/plugins/custom', OutputDir + '/plugins/custom').replace('.scss', '.bundle.css'));
 });
 
 // Metronic css pages (single page use)
 (glob.sync('./resources/metronic/sass/pages/**/!(_)*.scss') || []).forEach(file => {
     file = file.replace(/[\\\/]+/g, '/');
-    mix.sass(file, file.replace('./resources/metronic/sass', './assets/css').replace(/\.scss$/, '.css'));
+    mix.sass(file, file.replace('./resources/metronic/sass', OutputDir + '/css').replace(/\.scss$/, '.css'));
 });
 
 // Metronic js pages (single page use)
 (glob.sync('./resources/metronic/js/pages/**/*.js') || []).forEach(file => {
-    mix.js(file, `./${file.replace('./resources/metronic/js/pages', './assets/js/pages')}`);
+    mix.js(file, `./${file.replace('./resources/metronic/js/pages', OutputDir + '/js/pages')}`);
 });
 
 // Metronic media
-mix.copyDirectory('./resources/metronic/media', './assets/media');
+mix.copyDirectory('./resources/metronic/media', OutputDir + '/media');
 
 // Metronic theme
 (glob.sync('./resources/metronic/sass/themes/**/!(_)*.scss') || []).forEach(file => {
     file = file.replace(/[\\\/]+/g, '/');
-    mix.sass(file, file.replace('./resources/metronic/sass', './assets/css').replace(/\.scss$/, '.css'));
+    mix.sass(file, file.replace('./resources/metronic/sass', OutputDir + '/css').replace(/\.scss$/, '.css'));
 });
 
 mix.webpackConfig({
     plugins: [
         new ReplaceInFileWebpackPlugin([{
             // rewrite font paths
-            dir: path.resolve('./assets/plugins/global'),
+            dir: path.resolve(OutputDir + '/plugins/global'),
             test: /\.css$/,
             rules: [{
                     // fontawesome
@@ -117,12 +129,14 @@ mix.webpackConfig({
 (glob.sync('./resources/metronic/plugins/**/*.+(woff|woff2|eot|ttf)') || []).forEach(file => {
     //public\/themes\/metronic\/
     var folder = file.match(/resources\/metronic\/plugins\/(.*?)\//)[1];
-    mix.copy(file, `./assets/plugins/global/fonts/${folder}/${path.basename(file)}`);
+    var OutputDirr = OutputDir;
+    mix.copy(file, `${OutputDirr}/plugins/global/fonts/${folder}/${path.basename(file)}`);
 });
 (glob.sync('node_modules/+(@fortawesome|socicon|line-awesome)/**/*.+(woff|woff2|eot|ttf)') || []).forEach(file => {
     var folder = file.match(/node_modules\/(.*?)\//)[1];
-    mix.copy(file, `./assets/plugins/global/fonts/${folder}/${path.basename(file)}`);
-    mix.copy(file, `./assets/plugins/fonts/${path.basename(file)}`);
+    var OutputDirr = OutputDir;
+    mix.copy(file, `${OutputDirr}/plugins/global/fonts/${folder}/${path.basename(file)}`);
+    mix.copy(file, `${OutputDirr}/plugins/fonts/${path.basename(file)}`);
 });
 
 // Optional: Import datatables.net
@@ -150,7 +164,7 @@ mix.scripts([
     'node_modules/datatables.net-rowreorder/js/dataTables.rowReorder.min.js',
     'node_modules/datatables.net-scroller/js/dataTables.scroller.min.js',
     'node_modules/datatables.net-select/js/dataTables.select.min.js',
-], './assets/plugins/custom/datatables/datatables.bundle.js');
+], OutputDir + '/plugins/custom/datatables/datatables.bundle.js');
 mix.styles([
     'node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css',
     'node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css',
@@ -164,4 +178,4 @@ mix.styles([
     'node_modules/datatables.net-rowreorder-bs4/css/rowReorder.bootstrap4.min.css',
     'node_modules/datatables.net-scroller-bs4/css/scroller.bootstrap4.min.css',
     'node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css',
-], './assets/plugins/custom/datatables/datatables.bundle.css');
+], OutputDir + '/plugins/custom/datatables/datatables.bundle.css');
