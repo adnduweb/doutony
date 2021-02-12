@@ -64,12 +64,12 @@
 							<!-- Trace info -->
 							<?php if (isset($row['file']) && is_file($row['file'])) :?>
 								<?php
-								if (isset($row['function']) && in_array($row['function'], ['include', 'include_once', 'require', 'require_once']))
-									{
+								if (isset($row['function']) && in_array($row['function'], ['include', 'include_once', 'require', 'require_once'], true))
+								{
 									echo $row['function'] . ' ' . static::cleanPath($row['file']);
 								}
 								else
-									{
+								{
 									echo static::cleanPath($row['file']) . ' : ' . $row['line'];
 								}
 								?>
@@ -89,15 +89,15 @@
 										<?php
 										$params = null;
 										// Reflection by name is not available for closure function
-										if (substr( $row['function'], -1 ) !== '}')
+										if (substr($row['function'], -1) !== '}')
 										{
-											$mirror = isset( $row['class'] ) ? new \ReflectionMethod( $row['class'], $row['function'] ) : new \ReflectionFunction( $row['function'] );
+											$mirror = isset($row['class']) ? new \ReflectionMethod($row['class'], $row['function']) : new \ReflectionFunction($row['function']);
 											$params = $mirror->getParameters();
 										}
 										foreach ($row['args'] as $key => $value) : ?>
 											<tr>
 												<td><code><?= htmlspecialchars(isset($params[$key]) ? '$' . $params[$key]->name : "#$key", ENT_SUBSTITUTE, 'UTF-8') ?></code></td>
-												<td><pre><?= print_r($value, true) ?></pre></td>
+												<td><pre><?= htmlspecialchars(print_r($value, true), ENT_SUBSTITUTE, 'UTF-8') ?></pre></td>
 											</tr>
 										<?php endforeach ?>
 
@@ -114,7 +114,7 @@
 						</p>
 
 						<!-- Source? -->
-						<?php if (isset($row['file']) && is_file($row['file']) &&  isset($row['class'])) : ?>
+						<?php if (isset($row['file']) && is_file($row['file']) && isset($row['class'])) : ?>
 							<div class="source">
 								<?= static::highlightFile($row['file'], $row['line']) ?>
 							</div>
@@ -151,7 +151,7 @@
 									<?php if (is_string($value)) : ?>
 										<?= htmlspecialchars($value, ENT_SUBSTITUTE, 'UTF-8') ?>
 									<?php else: ?>
-										<?= '<pre>' . print_r($value, true) ?>
+										<pre><?= htmlspecialchars(print_r($value, true), ENT_SUBSTITUTE, 'UTF-8') ?></pre>
 									<?php endif; ?>
 								</td>
 							</tr>
@@ -178,10 +178,10 @@
 							<tr>
 								<td><?= htmlspecialchars($key, ENT_IGNORE, 'UTF-8') ?></td>
 								<td>
-									<?php if (! is_array($value) && ! is_object($value)) : ?>
+									<?php if (is_string($value)) : ?>
 										<?= htmlspecialchars($value, ENT_SUBSTITUTE, 'UTF-8') ?>
 									<?php else: ?>
-										<?= '<pre>' . print_r($value, true) ?>
+										<pre><?= htmlspecialchars(print_r($value, true), ENT_SUBSTITUTE, 'UTF-8') ?></pre>
 									<?php endif; ?>
 								</td>
 							</tr>
@@ -253,10 +253,10 @@
 							<tr>
 								<td><?= htmlspecialchars($key, ENT_IGNORE, 'UTF-8') ?></td>
 								<td>
-									<?php if (! is_array($value) && ! is_object($value)) : ?>
+									<?php if (is_string($value)) : ?>
 										<?= htmlspecialchars($value, ENT_SUBSTITUTE, 'UTF-8') ?>
 									<?php else: ?>
-										<?= '<pre>' . print_r($value, true) ?>
+										<pre><?= htmlspecialchars(print_r($value, true), ENT_SUBSTITUTE, 'UTF-8') ?></pre>
 									<?php endif; ?>
 								</td>
 							</tr>
@@ -354,7 +354,7 @@
 
 				<ol>
 				<?php foreach ($files as $file) :?>
-					<li><?= htmlspecialchars( static::cleanPath($file), ENT_SUBSTITUTE, 'UTF-8') ?></li>
+					<li><?= htmlspecialchars(static::cleanPath($file), ENT_SUBSTITUTE, 'UTF-8') ?></li>
 				<?php endforeach ?>
 				</ol>
 			</div>

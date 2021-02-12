@@ -323,7 +323,7 @@ class App extends BaseConfig
 	 *
 	 * @deprecated Use `Config\Security` $samesite property instead of using this property.
 	 *
-	 * @var string
+	 * @var string 'Lax'|'None'|'Strict'
 	 */
 	public $CSRFSameSite = 'Lax';
 

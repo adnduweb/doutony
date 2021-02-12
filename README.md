@@ -70,3 +70,23 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [mbstring](http://php.net/manual/en/mbstring.installation.php)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
 - xml (enabled by default - don't turn it off)
+
+
+A INSTALLER
+
+composer require --dev liaison/revision -> https://forum.codeigniter.com/thread-78508.html
+
+
+A GARDER EN DEV
+
+ "require": {
+        "php": ">=7.2",
+        "kint-php/kint": "^3.3",
+        "psr/log": "^1.1",
+        "laminas/laminas-escaper": "^2.6",
+        "codeigniter4/codeigniter4": "dev-develop",
+        "codeigniter4/translations": "@beta",
+        "adnduweb/ci4_core": "dev-main",
+        "adnduweb/ci4_front": "9999999-dev",
+        "firebase/php-jwt": "^5.2"
+    },

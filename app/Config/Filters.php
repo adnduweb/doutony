@@ -9,6 +9,7 @@ use CodeIgniter\Filters\Honeypot;
 use \Adnduweb\Ci4Admin\Filters\LoginFilter;
 use \Adnduweb\Ci4Admin\Filters\RoleFilter;
 use \Adnduweb\Ci4Admin\Filters\PermissionFilter;
+use \Adnduweb\Ci4Core\Filters\CorsFilter;
 
 class Filters extends BaseConfig
 {
@@ -22,9 +23,10 @@ class Filters extends BaseConfig
 		'csrf'       => CSRF::class,
 		'toolbar'    => DebugToolbar::class,
 		'honeypot'   => Honeypot::class,
-		'login'      => LoginFilter::class, // Applicate Route
-		'role'       => RoleFilter::class, // Applicate Route
-		'permission' => PermissionFilter::class, // Applicate Route
+		'login'      => LoginFilter::class,        // Applicate Route
+		'role'       => RoleFilter::class,         // Applicate Route
+		'permission' => PermissionFilter::class,   // Applicate Route
+		'cors'       => CorsFilter::class,
 	];
 
 	/**
@@ -64,5 +66,7 @@ class Filters extends BaseConfig
 	 *
 	 * @var array
 	 */
-	public $filters = [];
+	public $filters = [
+		//'cors' => ['after' => ['api/*']]
+	];
 }

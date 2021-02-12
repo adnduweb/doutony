@@ -11,14 +11,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2",
+        "php": "^7.3||^8.0",
+        "codeigniter4/framework": "^4",
         "kint-php/kint": "^3.3",
         "psr/log": "^1.1",
         "laminas/laminas-escaper": "^2.6",
-        "codeigniter4/codeigniter4": "dev-develop",
         "codeigniter4/translations": "@beta",
-        "adnduweb/ci4_core": "dev-main",
-        "adnduweb/ci4_front": "9999999-dev"
+        "adnduweb/ci4_core": "*",
+        "firebase/php-jwt": "^5.2"
     },
     "require-dev": {
         "mikey179/vfsstream": "^1.6",

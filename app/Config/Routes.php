@@ -52,3 +52,18 @@ if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
+/**
+ * --------------------------------------------------------------------
+ * Custom Routes
+ * --------------------------------------------------------------------
+ *
+ * Add this line to intercept "OPTIONS" requests
+ */
+// echo VENDORPATH . 'adnduweb/ci4_core/Controllers/BaseApiController.php'; exit;
+// if (file_exists(VENDORPATH . 'adnduweb/ci4_core/Controllers/BaseApiController.php'))
+// { 	
+// 	$routes->options('(:any)', '\Adnduweb\Ci4Core\Controllers\BaseApiController::options');
+// 	$routes->resource('api/customer', ['controller' =>'\Adnduweb\Ci4Front\Controllers\Api\Customer']);
+// 	//print_r($routes); exit;
+// }

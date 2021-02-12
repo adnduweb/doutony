@@ -21,8 +21,8 @@ class Paths
 	 * as this file.
 	 * Check between Framework and codeigniter4
 	 */
-	//public $systemDirectory = __DIR__ . '/../../vendor/codeigniter4/framework/system';
-	public $systemDirectory = __DIR__ . '/../../vendor/codeigniter4/codeigniter4/system';
+	public $systemDirectory = __DIR__ . '/../../vendor/codeigniter4/framework/system';
+	//public $systemDirectory = __DIR__ . '/../../vendor/codeigniter4/codeigniter4/system';
 
 	/*
 	 *---------------------------------------------------------------
