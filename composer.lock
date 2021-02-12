@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80dd63a85158a442032de95b104a6d93",
+    "content-hash": "3c33b6c9ae852d85ba6bffcd80eb82ee",
     "packages": [
         {
             "name": "adnduweb/ci4_admin",
@@ -43,16 +43,16 @@
         },
         {
             "name": "adnduweb/ci4_core",
-            "version": "v1.0.1",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adnduweb/ci4_core.git",
-                "reference": "73b0abf77becd422f5ae48b9d71bd4def7d7ecf3"
+                "reference": "6832294396e9104b164eb2cb5f70709c133a581c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adnduweb/ci4_core/zipball/73b0abf77becd422f5ae48b9d71bd4def7d7ecf3",
-                "reference": "73b0abf77becd422f5ae48b9d71bd4def7d7ecf3",
+                "url": "https://api.github.com/repos/adnduweb/ci4_core/zipball/6832294396e9104b164eb2cb5f70709c133a581c",
+                "reference": "6832294396e9104b164eb2cb5f70709c133a581c",
                 "shasum": ""
             },
             "require": {
@@ -70,6 +70,7 @@
                 "tecnickcom/tcpdf": "^6.3",
                 "whichbrowser/parser": "^2.0.6"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -83,45 +84,9 @@
             "description": "An Example of CodeIgniter 4 Core module Doutony",
             "support": {
                 "issues": "https://github.com/adnduweb/ci4_core/issues",
-                "source": "https://github.com/adnduweb/ci4_core/tree/v1.0.1"
+                "source": "https://github.com/adnduweb/ci4_core/tree/main"
             },
-            "time": "2021-02-12T08:04:30+00:00"
-        },
-        {
-            "name": "adnduweb/ci4_front",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/adnduweb/ci4_front.git",
-                "reference": "2f02a172083affac29a3af1febeb9f850f6ef79a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/adnduweb/ci4_front/zipball/2f02a172083affac29a3af1febeb9f850f6ef79a",
-                "reference": "2f02a172083affac29a3af1febeb9f850f6ef79a",
-                "shasum": ""
-            },
-            "require": {
-                "adnduweb/ci4_core": "*",
-                "php": ">=7.2"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Adnduweb\\Ci4Front\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "An Example of CodeIgniter 4 Front module",
-            "support": {
-                "issues": "https://github.com/adnduweb/ci4_front/issues",
-                "source": "https://github.com/adnduweb/ci4_front/tree/main"
-            },
-            "time": "2020-12-22T10:44:31+00:00"
+            "time": "2021-02-12T18:33:09+00:00"
         },
         {
             "name": "adnduweb/ci4_media",
@@ -3679,7 +3644,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "codeigniter4/translations": 10,
-        "adnduweb/ci4_front": 20
+        "adnduweb/ci4_core": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
