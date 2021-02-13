@@ -17,7 +17,7 @@
         "psr/log": "^1.1",
         "laminas/laminas-escaper": "^2.6",
         "codeigniter4/translations": "@beta",
-        "adnduweb/ci4_core": "dev-main",
+        "adnduweb/ci4_core": "^1.0",
         "firebase/php-jwt": "^5.2"
     },
     "require-dev": {
